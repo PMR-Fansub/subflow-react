@@ -1,57 +1,44 @@
-import React from 'react';
-import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
-import './App.css';
+import React, { useEffect } from "react";
+import "./App.css";
+import { Route, Routes, useNavigate } from "react-router-dom";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+import { AuthProvider, RequireAuth, RequireNotAuth } from "./utils/auth";
+import { Flex, useToast } from "@chakra-ui/react";
+import NavBar from "./components/NavBar.js";
+import Footer from "./components/Footer";
+import NotFound from "./pages/NotFound";
+import Landing from "./pages/Landing";
+import Loading from "./pages/Loading";
+import Kanban from "./pages/Kanban";
+import Profile from "./pages/Profile";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Counter />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <span>
-          <span>Learn </span>
-          <a
-            className="App-link"
-            href="https://reactjs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux-toolkit.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux Toolkit
-          </a>
-          ,<span> and </span>
-          <a
-            className="App-link"
-            href="https://react-redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React Redux
-          </a>
-        </span>
-      </header>
-    </div>
+    <AuthProvider>
+      <Flex
+        direction={"column"}
+        minHeight={"100vh"}
+        justify={"space-between"}
+        backgroundColor={"gray.50"}
+      >
+        <NavBar />
+        <Routes>
+          <Route index element={<Landing />} />
+          <Route path="loading" element={<Loading />} />
+          <Route element={<RequireNotAuth />}>
+            <Route path="login" element={<Login />} />
+            <Route path="register" element={<Register />} />
+          </Route>
+          <Route element={<RequireAuth />}>
+            <Route path="kanban" element={<Kanban />} />
+            <Route path="profile" element={<Profile />} />
+          </Route>
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+        <Footer />
+      </Flex>
+    </AuthProvider>
   );
 }
 
