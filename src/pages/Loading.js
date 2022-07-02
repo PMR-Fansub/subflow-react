@@ -1,12 +1,12 @@
 import { Text, Flex, Spinner } from "@chakra-ui/react";
 
-function Loading() {
+const Loading = () => {
   const getRandomLoadingText = () => {
     const loadingTexts = [
       "组长祈祷中...",
       "翻译挠头中...",
       "校对血压上升中...",
-      "时轴对帧中...",
+      "时轴对帧中..."
     ];
     return loadingTexts[Math.floor(Math.random() * loadingTexts.length)];
   };
@@ -18,6 +18,6 @@ function Loading() {
       </Text>
     </Flex>
   );
-}
+};
 
 export default Loading;

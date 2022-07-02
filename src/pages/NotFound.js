@@ -1,7 +1,7 @@
 import { Box, Heading, Text, Button } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
 
-export default function NotFound() {
+const NotFound = () => {
   const navigate = useNavigate();
   return (
     <Box textAlign="center" py={10} px={6}>
@@ -32,4 +32,6 @@ export default function NotFound() {
       </Button>
     </Box>
   );
-}
+};
+
+export default NotFound;

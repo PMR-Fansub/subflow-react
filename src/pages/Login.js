@@ -11,7 +11,7 @@ import {
   useColorModeValue,
   useToast,
   FormErrorMessage,
-  Image,
+  Image
 } from "@chakra-ui/react";
 import { Link as RouterLink, useLocation, useNavigate } from "react-router-dom";
 import { useAuth } from "../utils/auth";
@@ -19,7 +19,7 @@ import { useForm } from "react-hook-form";
 import { useState } from "react";
 import SubFlowLogoFull from "../assets/subflow-full.svg";
 
-function Login() {
+const Login = () => {
   const toast = useToast();
   const navigate = useNavigate();
   const location = useLocation();
@@ -31,25 +31,25 @@ function Login() {
   const {
     handleSubmit,
     register,
-    formState: { errors },
+    formState: { errors }
   } = useForm();
 
-  const handleLogin = (values) => {
+  const handleLogin = values => {
     setIsSubmitting(true);
     const username = values.username;
     const password = values.password;
     auth
       .login(username, password)
-      .then((response) => {
+      .then(response => {
         toast({
           title: "登录成功",
           status: "success",
           duration: 5000,
-          isClosable: true,
+          isClosable: true
         });
         navigate(from);
       })
-      .catch((error) => {
+      .catch(error => {
         let errorMessage = "";
         if (error.response) {
           errorMessage = `${error.response.data.message} (${error.response.data.code})`;
@@ -61,7 +61,7 @@ function Login() {
           description: errorMessage,
           status: "error",
           duration: 5000,
-          isClosable: true,
+          isClosable: true
         });
       })
       .finally(() => {
@@ -70,11 +70,7 @@ function Login() {
   };
 
   return (
-    <Flex
-      align={"center"}
-      justify={"center"}
-      bg={useColorModeValue("gray.50", "gray.800")}
-    >
+    <Flex align={"center"} justify={"center"}>
       <Stack spacing={8} mx={"auto"} maxW={"lg"} py={12} px={6}>
         <Stack align={"center"}>
           <Image src={SubFlowLogoFull} height={"60px"}></Image>
@@ -133,7 +129,7 @@ function Login() {
                   bg={"brand.light"}
                   color={"white"}
                   _hover={{
-                    bg: "brand.dark",
+                    bg: "brand.dark"
                   }}
                   type="submit"
                   isLoading={isSubmitting}
@@ -147,6 +143,6 @@ function Login() {
       </Stack>
     </Flex>
   );
-}
+};
 
 export default Login;

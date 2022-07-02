@@ -3,11 +3,11 @@ import {
   chakra,
   Container,
   Image,
-  Link,
+  // Link,
   Stack,
   Text,
   useColorModeValue,
-  VisuallyHidden,
+  VisuallyHidden
 } from "@chakra-ui/react";
 import { RiBilibiliFill, RiGithubFill } from "react-icons/ri";
 import SubFlowLogoFull from "../assets/subflow-full.svg";
@@ -28,7 +28,7 @@ const SocialButton = ({ children, label, href }) => {
       justifyContent={"center"}
       transition={"background 0.3s ease"}
       _hover={{
-        bg: useColorModeValue("blackAlpha.200", "whiteAlpha.200"),
+        bg: useColorModeValue("blackAlpha.200", "whiteAlpha.200")
       }}
     >
       <VisuallyHidden>{label}</VisuallyHidden>
@@ -37,10 +37,10 @@ const SocialButton = ({ children, label, href }) => {
   );
 };
 
-export default function Footer() {
+const Footer = () => {
   return (
     <Box
-      bg={useColorModeValue("gray.50", "gray.900")}
+      bg={useColorModeValue("white", "gray.900")}
       color={useColorModeValue("gray.700", "gray.200")}
     >
       <Container
@@ -71,4 +71,6 @@ export default function Footer() {
       </Container>
     </Box>
   );
-}
+};
+
+export default Footer;
