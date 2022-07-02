@@ -20,22 +20,23 @@ import {
   PopoverTrigger,
   PopoverContent,
   useColorModeValue,
-  useBreakpointValue,
+  // useBreakpointValue,
   useDisclosure,
-  Image,
+  Image
 } from "@chakra-ui/react";
 import {
   HamburgerIcon,
   CloseIcon,
   ChevronDownIcon,
-  ChevronRightIcon,
+  ChevronRightIcon
 } from "@chakra-ui/icons";
 import { FiChevronDown } from "react-icons/fi";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../utils/auth";
 import SubFlowLogoFull from "../assets/subflow-full.svg";
+import ThemeToggleButton from "./theme-toggle-button";
 
-export default function WithSubnavigation() {
+const WithSubnavigation = () => {
   const { isOpen, onToggle } = useDisclosure();
   const navigate = useNavigate();
   const auth = useAuth();
@@ -43,8 +44,8 @@ export default function WithSubnavigation() {
   return (
     <Box>
       <Flex
-        bg={useColorModeValue("white", "gray.800")}
-        color={useColorModeValue("gray.600", "white")}
+        bg={useColorModeValue("white", "gray.900")}
+        color={useColorModeValue("gray.700", "gray.200")}
         minH={"60px"}
         py={{ base: 2 }}
         px={{ base: 4 }}
@@ -146,6 +147,7 @@ export default function WithSubnavigation() {
             </>
           ) : (
             <>
+              <ThemeToggleButton />
               <Button
                 as={"a"}
                 fontSize={"sm"}
@@ -165,7 +167,7 @@ export default function WithSubnavigation() {
                 color={"white"}
                 bg={"brand.light"}
                 _hover={{
-                  bg: "brand.right",
+                  bg: "brand.right"
                 }}
                 onClick={() => {
                   navigate("/register");
@@ -183,7 +185,9 @@ export default function WithSubnavigation() {
       </Collapse>
     </Box>
   );
-}
+};
+
+export default WithSubnavigation;
 
 const DesktopNav = () => {
   const linkColor = useColorModeValue("gray.600", "gray.200");
@@ -192,7 +196,7 @@ const DesktopNav = () => {
 
   return (
     <Stack direction={"row"} spacing={4}>
-      {NAV_ITEMS.map((navItem) => (
+      {NAV_ITEMS.map(navItem => (
         <Box key={navItem.label}>
           <Popover trigger={"hover"} placement={"bottom-start"}>
             <PopoverTrigger>
@@ -204,7 +208,7 @@ const DesktopNav = () => {
                 color={linkColor}
                 _hover={{
                   textDecoration: "none",
-                  color: linkHoverColor,
+                  color: linkHoverColor
                 }}
               >
                 {navItem.label}
@@ -221,7 +225,7 @@ const DesktopNav = () => {
                 minW={"sm"}
               >
                 <Stack>
-                  {navItem.children.map((child) => (
+                  {navItem.children.map(child => (
                     <DesktopSubNav key={child.label} {...child} />
                   ))}
                 </Stack>
@@ -278,7 +282,7 @@ const MobileNav = () => {
       p={4}
       display={{ md: "none" }}
     >
-      {NAV_ITEMS.map((navItem) => (
+      {NAV_ITEMS.map(navItem => (
         <MobileNavItem key={navItem.label} {...navItem} />
       ))}
     </Stack>
@@ -297,7 +301,7 @@ const MobileNavItem = ({ label, children, href }) => {
         justify={"space-between"}
         align={"center"}
         _hover={{
-          textDecoration: "none",
+          textDecoration: "none"
         }}
       >
         <Text
@@ -327,7 +331,7 @@ const MobileNavItem = ({ label, children, href }) => {
           align={"start"}
         >
           {children &&
-            children.map((child) => (
+            children.map(child => (
               <Link key={child.label} py={2} href={child.href}>
                 {child.label}
               </Link>
@@ -341,6 +345,6 @@ const MobileNavItem = ({ label, children, href }) => {
 const NAV_ITEMS = [
   {
     label: "看板",
-    href: "/kanban",
-  },
+    href: "/kanban"
+  }
 ];

@@ -13,7 +13,7 @@ import {
   Text,
   useColorModeValue,
   Link,
-  useToast,
+  useToast
 } from "@chakra-ui/react";
 import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
 import { Link as RouterLink, useNavigate } from "react-router-dom";
@@ -22,7 +22,7 @@ import { useAuth } from "../utils/auth";
 import { useForm } from "react-hook-form";
 import SubFlowLogoFull from "../assets/subflow-full.svg";
 
-function Register() {
+const Register = () => {
   const toast = useToast();
   const navigate = useNavigate();
   const auth = useAuth();
@@ -32,25 +32,25 @@ function Register() {
     handleSubmit,
     register,
     formState: { errors },
-    watch,
+    watch
   } = useForm();
 
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-  const handleRegister = (values) => {
+  const handleRegister = values => {
     auth
       .register(values.username, values.email, values.password)
-      .then((response) => {
+      .then(response => {
         toast({
           title: "注册成功",
           description: "即将转到登录页面…",
           status: "success",
           duration: 5000,
-          isClosable: true,
+          isClosable: true
         });
         navigate("/login");
       })
-      .catch((error) => {
+      .catch(error => {
         let errorMessage = "";
         if (error.response) {
           errorMessage = `${error.response.data.message} (${error.response.data.code})`;
@@ -62,17 +62,13 @@ function Register() {
           description: errorMessage,
           status: "error",
           duration: 5000,
-          isClosable: true,
+          isClosable: true
         });
       });
   };
 
   return (
-    <Flex
-      align={"center"}
-      justify={"center"}
-      bg={useColorModeValue("gray.50", "gray.800")}
-    >
+    <Flex align={"center"} justify={"center"}>
       <Stack spacing={8} mx={"auto"} maxW={"lg"} py={12} px={6}>
         <Stack align={"center"}>
           <Image src={SubFlowLogoFull} height={"60px"}></Image>
@@ -101,7 +97,7 @@ function Register() {
                   {...register("username", {
                     required: "用户名不可为空",
                     minLength: { value: 4, message: "用户名长度不可小于4" },
-                    maxLength: { value: 32, message: "用户名长度不可大于32" },
+                    maxLength: { value: 32, message: "用户名长度不可大于32" }
                   })}
                 />
                 <FormErrorMessage>
@@ -118,8 +114,8 @@ function Register() {
                     required: "邮箱地址不可为空",
                     pattern: {
                       value: emailRegex,
-                      message: "邮箱地址格式不正确",
-                    },
+                      message: "邮箱地址格式不正确"
+                    }
                   })}
                 />
                 <FormErrorMessage>
@@ -136,14 +132,14 @@ function Register() {
                     {...register("password", {
                       required: "密码不可为空",
                       minLength: { value: 6, message: "密码长度不可小于6" },
-                      maxLength: { value: 64, message: "密码长度不可大于64" },
+                      maxLength: { value: 64, message: "密码长度不可大于64" }
                     })}
                   />
                   <InputRightElement h={"full"}>
                     <Button
                       variant={"ghost"}
                       onClick={() =>
-                        setShowPassword((showPassword) => !showPassword)
+                        setShowPassword(showPassword => !showPassword)
                       }
                     >
                       {showPassword ? <ViewIcon /> : <ViewOffIcon />}
@@ -166,15 +162,15 @@ function Register() {
                     type={showPassword ? "text" : "password"}
                     autoComplete="new-password"
                     {...register("repeatPassword", {
-                      validate: (value) =>
-                        value === watch("password") || "两次密码不一致",
+                      validate: value =>
+                        value === watch("password") || "两次密码不一致"
                     })}
                   />
                   <InputRightElement h={"full"}>
                     <Button
                       variant={"ghost"}
                       onClick={() =>
-                        setShowPassword((showPassword) => !showPassword)
+                        setShowPassword(showPassword => !showPassword)
                       }
                     >
                       {showPassword ? <ViewIcon /> : <ViewOffIcon />}
@@ -191,7 +187,7 @@ function Register() {
                   bg={"green.500"}
                   color={"white"}
                   _hover={{
-                    bg: "green.600",
+                    bg: "green.600"
                   }}
                   type="submit"
                   isLoading={isSubmitting}
@@ -213,6 +209,6 @@ function Register() {
       </Stack>
     </Flex>
   );
-}
+};
 
 export default Register;

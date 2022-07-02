@@ -2,15 +2,15 @@ import { useToast } from "@chakra-ui/react";
 import { createContext, useContext, useState, useEffect } from "react";
 import { Navigate, Outlet, useLocation } from "react-router-dom";
 import axios from "../config/axios";
-import Loading from "../pages/Loading";
+import Loading from "../pages/loading";
 
 let AuthContext = createContext(null);
 
-function useAuth() {
+const useAuth = () => {
   return useContext(AuthContext);
-}
+};
 
-function AuthProvider({ children }) {
+const AuthProvider = ({ children }) => {
   const toast = useToast();
   let [userInfo, setUserInfo] = useState(
     JSON.parse(localStorage.getItem("userInfo"))
@@ -24,7 +24,7 @@ function AuthProvider({ children }) {
     return axios.post("/user/register", {
       username,
       email,
-      password,
+      password
     });
   };
 
@@ -32,9 +32,9 @@ function AuthProvider({ children }) {
     return axios
       .post("/user/login", {
         username,
-        password,
+        password
       })
-      .then((response) => {
+      .then(response => {
         const resBody = response.data;
         const tokenInfo = resBody.data.saTokenInfo;
         const userInfo = resBody.data.userInfo;
@@ -52,18 +52,18 @@ function AuthProvider({ children }) {
       description: "已成功退出登录",
       status: "success",
       duration: 5000,
-      isClosable: true,
+      isClosable: true
     });
   };
 
-  const getUserInfo = (callback) => {
+  const getUserInfo = callback => {
     axios
       .get("/user")
-      .then((response) => {
+      .then(response => {
         setUserInfo(response.data.data);
         localStorage.setItem("userInfo", JSON.stringify(response.data.data));
       })
-      .catch((error) => {
+      .catch(error => {
         clearLoginState();
         let errorMessage = "";
         if (error.response) {
@@ -76,7 +76,7 @@ function AuthProvider({ children }) {
           description: errorMessage,
           status: "error",
           duration: 5000,
-          isClosable: true,
+          isClosable: true
         });
       })
       .finally(() => {
@@ -91,13 +91,13 @@ function AuthProvider({ children }) {
     register,
     login,
     logout,
-    getUserInfo,
+    getUserInfo
   };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
-}
+};
 
-function RequireAuth() {
+const RequireAuth = () => {
   let auth = useAuth();
   let location = useLocation();
   let [isLoading, setIsLoading] = useState(true);
@@ -114,12 +114,12 @@ function RequireAuth() {
   ) : (
     <Navigate to="/login" state={{ from: location }} replace />
   );
-}
+};
 
-function RequireNotAuth() {
+const RequireNotAuth = () => {
   let auth = useAuth();
 
   return auth.userInfo ? <Navigate to="/" replace /> : <Outlet />;
-}
+};
 
 export { AuthProvider, RequireAuth, RequireNotAuth, useAuth };

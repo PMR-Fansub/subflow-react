@@ -6,14 +6,13 @@ import {
   Stack,
   Text,
   Button,
-  Image,
+  Image
 } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
-
 import TeamCollaborationIllustration from "../assets/teamCollaboration.svg";
 import { useAuth } from "../utils/auth";
 
-export default function Landing() {
+const Landing = () => {
   const navigate = useNavigate();
   let auth = useAuth();
 
@@ -85,4 +84,6 @@ export default function Landing() {
       </Stack>
     </Container>
   );
-}
+};
+
+export default Landing;

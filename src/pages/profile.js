@@ -17,11 +17,11 @@ import {
   ModalHeader,
   ModalCloseButton,
   ModalBody,
-  ModalFooter,
+  ModalFooter
 } from "@chakra-ui/react";
 import { useAuth } from "../utils/auth";
 
-function Profile() {
+const Profile = () => {
   const auth = useAuth();
 
   return (
@@ -56,23 +56,23 @@ function Profile() {
             { label: "SFID", value: auth.userInfo.id },
             {
               label: "用户名",
-              value: auth.userInfo.username,
+              value: auth.userInfo.username
             },
             {
               label: "昵称",
               value: auth.userInfo.nickname,
-              others: <EditNicknameButton />,
+              others: <EditNicknameButton />
             },
             { label: "邮件地址", value: auth.userInfo.email },
             {
               label: "注册时间",
-              value: new Date(auth.userInfo.register_time).toLocaleString(),
+              value: new Date(auth.userInfo.register_time).toLocaleString()
             },
             {
               label: "最后登录时间",
-              value: new Date(auth.userInfo.login_time).toLocaleString(),
-            },
-          ].map((item) => {
+              value: new Date(auth.userInfo.login_time).toLocaleString()
+            }
+          ].map(item => {
             return (
               <HStack key={item.label} spacing={4}>
                 <Text fontSize={"md"} color={"gray.500"}>
@@ -87,9 +87,9 @@ function Profile() {
       </Box>
     </Flex>
   );
-}
+};
 
-function EditNicknameButton() {
+const EditNicknameButton = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const auth = useAuth();
 
@@ -126,6 +126,6 @@ function EditNicknameButton() {
       </Modal>
     </>
   );
-}
+};
 
 export default Profile;

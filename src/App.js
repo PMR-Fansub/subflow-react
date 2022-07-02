@@ -1,27 +1,22 @@
-import React, { useEffect } from "react";
+// import { useEffect } from "react";
 import "./App.css";
-import { Route, Routes, useNavigate } from "react-router-dom";
-import Login from "./pages/Login";
-import Register from "./pages/Register";
+import { Route, Routes } from "react-router-dom";
 import { AuthProvider, RequireAuth, RequireNotAuth } from "./utils/auth";
-import { Flex, useToast } from "@chakra-ui/react";
-import NavBar from "./components/NavBar.js";
-import Footer from "./components/Footer";
-import NotFound from "./pages/NotFound";
-import Landing from "./pages/Landing";
-import Loading from "./pages/Loading";
-import Kanban from "./pages/Kanban";
-import Profile from "./pages/Profile";
+import { Flex } from "@chakra-ui/react";
+import NavBar from "./components/navbar";
+import Footer from "./components/footer";
+import Login from "./pages/login";
+import Register from "./pages/register";
+import NotFound from "./pages/not-found";
+import Landing from "./pages/landing";
+import Loading from "./pages/loading";
+import Profile from "./pages/profile";
+// import Kanban from "./pages/Kanban";
 
-function App() {
+const App = () => {
   return (
     <AuthProvider>
-      <Flex
-        direction={"column"}
-        minHeight={"100vh"}
-        justify={"space-between"}
-        backgroundColor={"gray.50"}
-      >
+      <Flex direction={"column"} minHeight={"100vh"} justify={"space-between"}>
         <NavBar />
         <Routes>
           <Route index element={<Landing />} />
@@ -31,7 +26,7 @@ function App() {
             <Route path="register" element={<Register />} />
           </Route>
           <Route element={<RequireAuth />}>
-            <Route path="kanban" element={<Kanban />} />
+            {/* <Route path="kanban" element={<Kanban />} /> */}
             <Route path="profile" element={<Profile />} />
           </Route>
           <Route path="*" element={<NotFound />} />
@@ -40,6 +35,6 @@ function App() {
       </Flex>
     </AuthProvider>
   );
-}
+};
 
 export default App;
