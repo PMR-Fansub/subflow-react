@@ -2,7 +2,7 @@ import { useToast } from "@chakra-ui/react";
 import { createContext, useContext, useState, useEffect } from "react";
 import { Navigate, Outlet, useLocation } from "react-router-dom";
 import axios from "../config/axios";
-import Loading from "../pages/Loading";
+import Loading from "../pages/loading";
 
 let AuthContext = createContext(null);
 
