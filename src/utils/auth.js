@@ -3,6 +3,7 @@ import { createContext, useContext, useState, useEffect } from "react";
 import { Navigate, Outlet, useLocation } from "react-router-dom";
 import axios from "../config/axios";
 import Loading from "../pages/loading";
+import PropTypes from "prop-types";
 
 let AuthContext = createContext(null);
 
@@ -95,6 +96,10 @@ const AuthProvider = ({ children }) => {
   };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
+};
+
+AuthProvider.propTypes = {
+  children: PropTypes.element
 };
 
 const RequireAuth = () => {

@@ -35,6 +35,7 @@ import { useNavigate } from "react-router-dom";
 import { useAuth } from "../utils/auth";
 import SubFlowLogoFull from "../assets/subflow-full.svg";
 import ThemeToggleButton from "./theme-toggle-button";
+import PropTypes from "prop-types";
 
 const WithSubnavigation = () => {
   const { isOpen, onToggle } = useDisclosure();
@@ -275,6 +276,12 @@ const DesktopSubNav = ({ label, href, subLabel }) => {
   );
 };
 
+DesktopSubNav.propTypes = {
+  label: PropTypes.string,
+  href: PropTypes.string,
+  subLabel: PropTypes.string
+};
+
 const MobileNav = () => {
   return (
     <Stack
@@ -340,6 +347,12 @@ const MobileNavItem = ({ label, children, href }) => {
       </Collapse>
     </Stack>
   );
+};
+
+MobileNavItem.propTypes = {
+  label: PropTypes.string,
+  children: PropTypes.element,
+  href: PropTypes.string
 };
 
 const NAV_ITEMS = [

@@ -27,7 +27,7 @@ const Register = () => {
   const navigate = useNavigate();
   const auth = useAuth();
   const [showPassword, setShowPassword] = useState(false);
-  let [isSubmitting, setIsSubmitting] = useState(false);
+  let [isSubmitting, _] = useState(false);
   const {
     handleSubmit,
     register,
@@ -40,7 +40,7 @@ const Register = () => {
   const handleRegister = values => {
     auth
       .register(values.username, values.email, values.password)
-      .then(response => {
+      .then(() => {
         toast({
           title: "注册成功",
           description: "即将转到登录页面…",
