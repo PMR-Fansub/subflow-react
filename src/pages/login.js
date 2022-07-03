@@ -40,7 +40,7 @@ const Login = () => {
     const password = values.password;
     auth
       .login(username, password)
-      .then(response => {
+      .then(() => {
         toast({
           title: "登录成功",
           status: "success",

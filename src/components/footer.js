@@ -11,6 +11,7 @@ import {
 } from "@chakra-ui/react";
 import { RiBilibiliFill, RiGithubFill } from "react-icons/ri";
 import SubFlowLogoFull from "../assets/subflow-full.svg";
+import PropTypes from "prop-types";
 
 const SocialButton = ({ children, label, href }) => {
   return (
@@ -35,6 +36,12 @@ const SocialButton = ({ children, label, href }) => {
       {children}
     </chakra.button>
   );
+};
+
+SocialButton.propTypes = {
+  children: PropTypes.element,
+  label: PropTypes.string,
+  href: PropTypes.string
 };
 
 const Footer = () => {
