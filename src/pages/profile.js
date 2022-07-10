@@ -30,7 +30,7 @@ const Profile = () => {
 
   return (
     <Flex
-      align={{ base: "center", md: "center" }}
+      align={{ base: "center", md: "start" }}
       flexDir={{ base: "column", md: "row" }}
       justify={{ base: "flex-start", md: "flex-start" }}
       minHeight={"85vh"}
