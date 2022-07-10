@@ -59,7 +59,7 @@ const Footer = () => {
         justify={{ base: "center", md: "space-between" }}
         align={{ base: "center", md: "center" }}
       >
-        <Image src={SubFlowLogoFull} height="32px" />
+        <Image src={SubFlowLogoFull} height="20px" />
         <Text>© 2022 SubFlow All rights reserved. Powered by PMR Fansub</Text>
         <Stack direction={"row"} spacing={6}>
           <SocialButton

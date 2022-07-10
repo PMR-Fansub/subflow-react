@@ -88,7 +88,7 @@ const WithSubnavigation = () => {
           <Image
             cursor="pointer"
             src={SubFlowLogoFull}
-            height={"30px"}
+            height={"20px"}
             onClick={() => navigate("/")}
           />
 
