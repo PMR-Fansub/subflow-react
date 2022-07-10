@@ -95,7 +95,6 @@ const AuthProvider = ({ children }) => {
         localStorage.setItem("userInfo", JSON.stringify(userInfo));
       })
       .catch(error => {
-        clearLoginState();
         const errorMessage = error.response
           ? `${error.response.data.message} (${error.response.data.code})`
           : error.message;
