@@ -5,8 +5,11 @@ import {
   Button,
   Divider,
   Flex,
+  FormControl,
+  FormLabel,
   HStack,
   Heading,
+  Input,
   Modal,
   ModalBody,
   ModalCloseButton,
@@ -20,6 +23,7 @@ import {
   useDisclosure
 } from "@chakra-ui/react";
 import { useAuth } from "../utils/auth";
+import { useState } from "react";
 
 const Profile = () => {
   const auth = useAuth();
@@ -93,6 +97,9 @@ const EditNicknameButton = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const auth = useAuth();
 
+  const [input, setInput] = useState("");
+  const handleInputChange = e => setInput(e.target.value);
+
   const onModalOpen = () => {
     console.log("Open");
     onOpen();
@@ -101,6 +108,14 @@ const EditNicknameButton = () => {
   const onModalClose = () => {
     console.log("Close");
     auth.getUserInfo();
+    setInput("");
+    onClose();
+  };
+
+  const onConfirm = () => {
+    console.log("Update");
+    auth.updateUserInfo(input);
+    setInput("");
     onClose();
   };
 
@@ -114,12 +129,24 @@ const EditNicknameButton = () => {
         <ModalContent>
           <ModalHeader>修改昵称</ModalHeader>
           <ModalCloseButton />
-          <ModalBody></ModalBody>
+          <ModalBody>
+            <FormControl>
+              <FormLabel htmlFor="nickname">新昵称</FormLabel>
+              <Input
+                id="nickname"
+                isRequired
+                onChange={handleInputChange}
+                value={input}
+              />
+            </FormControl>
+          </ModalBody>
           <ModalFooter>
             <Button variant={"ghost"} onClick={onModalClose} mr={3}>
               取消
             </Button>
-            <Button colorScheme={"blue"}>修改</Button>
+            <Button colorScheme={"blue"} onClick={onConfirm}>
+              修改
+            </Button>
           </ModalFooter>
         </ModalContent>
       </Modal>
