@@ -87,12 +87,35 @@ const AuthProvider = ({ children }) => {
       });
   };
 
+  const updateUserInfo = nickname => {
+    axios
+      .patch(`/user/${userInfo.id}`, { nickname })
+      .then(() => {
+        setUserInfo({ ...userInfo, nickname });
+        localStorage.setItem("userInfo", JSON.stringify(userInfo));
+      })
+      .catch(error => {
+        clearLoginState();
+        const errorMessage = error.response
+          ? `${error.response.data.message} (${error.response.data.code})`
+          : error.message;
+        toast({
+          title: "修改昵称失败",
+          description: errorMessage,
+          status: "error",
+          duration: 5000,
+          isClosable: true
+        });
+      });
+  };
+
   let value = {
     userInfo,
     register,
     login,
     logout,
-    getUserInfo
+    getUserInfo,
+    updateUserInfo
   };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
