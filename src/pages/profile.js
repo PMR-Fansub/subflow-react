@@ -37,7 +37,7 @@ const Profile = () => {
       py={10}
       width={"100vw"}
     >
-      <VStack width={"30%"} paddingBottom={{ base: 5 }}>
+      <VStack width={{ base: "50%", md: "30%" }} paddingBottom={{ base: 5 }}>
         <Avatar size="2xl" name={auth.userInfo.username} />
         <Text fontSize="4xl">{auth.userInfo.nickname}</Text>
         <Text fontSize="2xl" color={"gray.500"}>
@@ -48,7 +48,7 @@ const Profile = () => {
         rounded={"lg"}
         bg={useColorModeValue("white", "gray.700")}
         boxShadow={"lg"}
-        width={{ base: "md", md: "60%" }}
+        width={{ base: "90%", md: "60%" }}
         p={8}
       >
         <Heading size={"md"} color={"gray.500"}>
