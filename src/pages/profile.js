@@ -1,23 +1,23 @@
 import { EditIcon } from "@chakra-ui/icons";
 import {
   Avatar,
-  Flex,
-  VStack,
-  Text,
   Box,
-  useColorModeValue,
-  Heading,
-  Divider,
-  HStack,
   Button,
-  useDisclosure,
+  Divider,
+  Flex,
+  HStack,
+  Heading,
   Modal,
-  ModalOverlay,
-  ModalContent,
-  ModalHeader,
-  ModalCloseButton,
   ModalBody,
-  ModalFooter
+  ModalCloseButton,
+  ModalContent,
+  ModalFooter,
+  ModalHeader,
+  ModalOverlay,
+  Text,
+  VStack,
+  useColorModeValue,
+  useDisclosure
 } from "@chakra-ui/react";
 import { useAuth } from "../utils/auth";
 
@@ -26,12 +26,12 @@ const Profile = () => {
 
   return (
     <Flex
-      width={"100vw"}
-      minHeight={"85vh"}
-      justify={{ md: "flex-start" }}
-      align={{ base: "center", md: "flex-start" }}
-      py={10}
+      align={{ base: "center", md: "center" }}
       flexDir={{ base: "column", md: "row" }}
+      justify={{ base: "flex-start", md: "flex-start" }}
+      minHeight={"85vh"}
+      py={10}
+      width={"100vw"}
     >
       <VStack width={"30%"} paddingBottom={{ base: 5 }}>
         <Avatar size="2xl" name={auth.userInfo.username} />
@@ -44,10 +44,10 @@ const Profile = () => {
         rounded={"lg"}
         bg={useColorModeValue("white", "gray.700")}
         boxShadow={"lg"}
-        width={"60%"}
+        width={{ base: "md", md: "60%" }}
         p={8}
       >
-        <Heading size={"md"} color={"gray.600"}>
+        <Heading size={"md"} color={"gray.500"}>
           个人资料
         </Heading>
         <Divider my={4} />
@@ -75,7 +75,7 @@ const Profile = () => {
           ].map(item => {
             return (
               <HStack key={item.label} spacing={4}>
-                <Text fontSize={"md"} color={"gray.500"}>
+                <Text width={"28"} fontSize={"md"} color={"gray.400"}>
                   {item.label}
                 </Text>
                 <Text fontSize={"md"}>{item.value}</Text>
@@ -109,8 +109,7 @@ const EditNicknameButton = () => {
       <Button size={"xs"} onClick={onModalOpen}>
         <EditIcon />
       </Button>
-
-      <Modal isOpen={isOpen} onClose={onModalClose}>
+      <Modal isCentered isOpen={isOpen} onClose={onModalClose}>
         <ModalOverlay />
         <ModalContent>
           <ModalHeader>修改昵称</ModalHeader>
