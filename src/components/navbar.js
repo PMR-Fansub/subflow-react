@@ -104,8 +104,9 @@ const WithSubnavigation = () => {
           direction={"row"}
           spacing={6}
         >
-          {auth.userInfo ? (
-            <>
+          <>
+            <ThemeToggleButton />
+            {auth.userInfo ? (
               <Menu>
                 <MenuButton
                   transition="all 0.3s"
@@ -145,39 +146,38 @@ const WithSubnavigation = () => {
                   </MenuItem>
                 </MenuList>
               </Menu>
-            </>
-          ) : (
-            <>
-              <ThemeToggleButton />
-              <Button
-                as={"a"}
-                fontSize={"sm"}
-                fontWeight={400}
-                variant={"link"}
-                href={"#"}
-                onClick={() => {
-                  navigate("/login");
-                }}
-              >
-                登录
-              </Button>
-              <Button
-                display={{ base: "none", md: "inline-flex" }}
-                fontSize={"sm"}
-                fontWeight={600}
-                color={"white"}
-                bg={"brand.light"}
-                _hover={{
-                  bg: "brand.right"
-                }}
-                onClick={() => {
-                  navigate("/register");
-                }}
-              >
-                注册
-              </Button>
-            </>
-          )}
+            ) : (
+              <>
+                <Button
+                  as={"a"}
+                  fontSize={"sm"}
+                  fontWeight={400}
+                  variant="ghost"
+                  href={"#"}
+                  onClick={() => {
+                    navigate("/login");
+                  }}
+                >
+                  登录
+                </Button>
+                <Button
+                  display={{ base: "none", md: "inline-flex" }}
+                  fontSize={"sm"}
+                  fontWeight={600}
+                  color={"white"}
+                  bg={"brand.light"}
+                  _hover={{
+                    bg: "brand.right"
+                  }}
+                  onClick={() => {
+                    navigate("/register");
+                  }}
+                >
+                  注册
+                </Button>
+              </>
+            )}
+          </>
         </Stack>
       </Flex>
 
