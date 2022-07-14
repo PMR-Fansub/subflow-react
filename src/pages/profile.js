@@ -10,6 +10,7 @@ import {
   HStack,
   Heading,
   Input,
+  IconButton,
   Modal,
   ModalBody,
   ModalCloseButton,
@@ -18,12 +19,14 @@ import {
   ModalHeader,
   ModalOverlay,
   Text,
+  Stack,
   VStack,
   useColorModeValue,
   useDisclosure
 } from "@chakra-ui/react";
 import { useAuth } from "../utils/auth";
 import { useState } from "react";
+import PropTypes from "prop-types";
 
 const Profile = () => {
   const auth = useAuth();
@@ -56,41 +59,54 @@ const Profile = () => {
         </Heading>
         <Divider my={4} />
         <VStack align={"start"} spacing={6}>
-          {[
-            { label: "SFID", value: auth.userInfo.id },
-            {
-              label: "用户名",
-              value: auth.userInfo.username
-            },
-            {
-              label: "昵称",
-              value: auth.userInfo.nickname,
-              others: <EditNicknameButton />
-            },
-            { label: "邮件地址", value: auth.userInfo.email },
-            {
-              label: "注册时间",
-              value: new Date(auth.userInfo.register_time).toLocaleString()
-            },
-            {
-              label: "最后登录时间",
-              value: new Date(auth.userInfo.login_time).toLocaleString()
-            }
-          ].map(item => {
-            return (
-              <HStack key={item.label} spacing={4}>
-                <Text width={"28"} fontSize={"md"} color={"gray.400"}>
-                  {item.label}
-                </Text>
-                <Text fontSize={"md"}>{item.value}</Text>
-                {item.others}
+          <ProfileItem label="SFID" value={auth.userInfo.id} />
+          <ProfileItem label="用户名" value={auth.userInfo.username} />
+          <ProfileItem
+            label="昵称"
+            value={
+              <HStack spacing={4}>
+                <Text fontSize={"md"}>{auth.userInfo.nickname}</Text>
+                <EditNicknameButton />
               </HStack>
-            );
-          })}
+            }
+          />
+          <ProfileItem label="邮件地址" value={auth.userInfo.email} />
+          <ProfileItem
+            label="注册时间"
+            value={new Date(auth.userInfo.register_time).toLocaleString()}
+          />
+          <ProfileItem
+            label="最后登录时间"
+            value={new Date(auth.userInfo.login_time).toLocaleString()}
+          />
         </VStack>
       </Box>
     </Flex>
   );
+};
+
+export default Profile;
+
+const ProfileItem = ({ label, value }) => {
+  const isElement = typeof value === "object";
+
+  return (
+    <Stack key={label} spacing={4} direction={{ base: "column", sm: "row" }}>
+      <Text width={"28"} fontSize={"md"} color={"gray.400"}>
+        {label}
+      </Text>
+      {!isElement ? <Text fontSize={"md"}>{value}</Text> : <>{value}</>}
+    </Stack>
+  );
+};
+
+ProfileItem.propTypes = {
+  label: PropTypes.string.isRequired,
+  value: PropTypes.oneOfType([
+    PropTypes.number,
+    PropTypes.string,
+    PropTypes.element
+  ]).isRequired
 };
 
 const EditNicknameButton = () => {
@@ -121,9 +137,12 @@ const EditNicknameButton = () => {
 
   return (
     <>
-      <Button size={"xs"} onClick={onModalOpen}>
-        <EditIcon />
-      </Button>
+      <IconButton
+        aria-label="Edit"
+        icon={<EditIcon />}
+        size="xs"
+        onClick={onModalOpen}
+      />
       <Modal isCentered isOpen={isOpen} onClose={onModalClose}>
         <ModalOverlay />
         <ModalContent>
@@ -153,5 +172,3 @@ const EditNicknameButton = () => {
     </>
   );
 };
-
-export default Profile;
