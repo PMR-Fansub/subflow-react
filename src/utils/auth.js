@@ -93,6 +93,12 @@ const AuthProvider = ({ children }) => {
       .then(() => {
         setUserInfo({ ...userInfo, nickname });
         localStorage.setItem("userInfo", JSON.stringify(userInfo));
+        toast({
+          description: "已成功修改昵称",
+          status: "success",
+          duration: 5000,
+          isClosable: true
+        });
       })
       .catch(error => {
         const errorMessage = error.response
