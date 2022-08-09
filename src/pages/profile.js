@@ -116,20 +116,12 @@ const EditNicknameButton = () => {
   const [input, setInput] = useState("");
   const handleInputChange = e => setInput(e.target.value);
 
-  const onModalOpen = () => {
-    console.log("Open");
-    onOpen();
-  };
-
-  const onModalClose = () => {
-    console.log("Close");
-    auth.getUserInfo();
+  const onCancel = () => {
     setInput("");
     onClose();
   };
 
   const onConfirm = () => {
-    console.log("Update");
     auth.updateUserInfo(input);
     setInput("");
     onClose();
@@ -141,9 +133,9 @@ const EditNicknameButton = () => {
         aria-label="Edit"
         icon={<EditIcon />}
         size="xs"
-        onClick={onModalOpen}
+        onClick={onOpen}
       />
-      <Modal isCentered isOpen={isOpen} onClose={onModalClose}>
+      <Modal isCentered isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
         <ModalContent>
           <ModalHeader>修改昵称</ModalHeader>
@@ -160,7 +152,7 @@ const EditNicknameButton = () => {
             </FormControl>
           </ModalBody>
           <ModalFooter>
-            <Button variant={"ghost"} onClick={onModalClose} mr={3}>
+            <Button variant={"ghost"} onClick={onCancel} mr={3}>
               取消
             </Button>
             <Button colorScheme={"blue"} onClick={onConfirm}>
