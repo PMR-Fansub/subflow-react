@@ -11,6 +11,7 @@ import {
 } from "@chakra-ui/react";
 import { RiBilibiliFill, RiGithubFill } from "react-icons/ri";
 import SubFlowLogoFull from "../assets/subflow-full.svg";
+import SubFlowLogoFullWhite from "../assets/subflow-full-white.svg";
 import PropTypes from "prop-types";
 
 const SocialButton = ({ children, label, href }) => {
@@ -59,7 +60,10 @@ const Footer = () => {
         justify={{ base: "center", md: "space-between" }}
         align={{ base: "center", md: "center" }}
       >
-        <Image src={SubFlowLogoFull} height="20px" />
+        <Image
+          src={useColorModeValue(SubFlowLogoFull, SubFlowLogoFullWhite)}
+          height="20px"
+        />
         <Text>© 2022 SubFlow All rights reserved. Powered by PMR Fansub</Text>
         <Stack direction={"row"} spacing={6}>
           <SocialButton
