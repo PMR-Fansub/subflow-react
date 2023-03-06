@@ -21,6 +21,7 @@ import { useState } from "react";
 import { useAuth } from "../utils/auth";
 import { useForm } from "react-hook-form";
 import SubFlowLogoFull from "../assets/subflow-full.svg";
+import SubFlowLogoFullWhite from "../assets/subflow-full-white.svg";
 
 const Register = () => {
   const toast = useToast();
@@ -71,10 +72,17 @@ const Register = () => {
     <Flex align={"center"} justify={"center"}>
       <Stack spacing={8} mx={"auto"} maxW={"lg"} py={12} px={6}>
         <Stack align={"center"}>
-          <Image src={SubFlowLogoFull} height={"60px"}></Image>
+          <Image
+            src={useColorModeValue(SubFlowLogoFull, SubFlowLogoFullWhite)}
+            height={"60px"}
+          ></Image>
           <Text fontSize={"lg"} color={"gray.600"}>
             Make fansub workflow more{" "}
-            <Text as={"span"} color={"brand.light"} fontWeight={"bold"}>
+            <Text
+              as={"span"}
+              color={useColorModeValue("brand.light", "white")}
+              fontWeight={"bold"}
+            >
               efficient
             </Text>
             .

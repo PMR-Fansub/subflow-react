@@ -34,6 +34,7 @@ import { FiChevronDown } from "react-icons/fi";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../utils/auth";
 import SubFlowLogoFull from "../assets/subflow-full.svg";
+import SubFlowLogoFullWhite from "../assets/subflow-full-white.svg";
 import ThemeToggleButton from "./theme-toggle-button";
 import PropTypes from "prop-types";
 
@@ -87,7 +88,7 @@ const WithSubnavigation = () => {
           </Text> */}
           <Image
             cursor="pointer"
-            src={SubFlowLogoFull}
+            src={useColorModeValue(SubFlowLogoFull, SubFlowLogoFullWhite)}
             height={"20px"}
             onClick={() => navigate("/")}
           />
