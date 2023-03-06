@@ -69,8 +69,7 @@ const fonts = {
 };
 
 const config = {
-  initialColorMode: "light",
-  useSystemColorMode: true
+  initialColorMode: "system"
 };
 
 const theme = extendTheme({
