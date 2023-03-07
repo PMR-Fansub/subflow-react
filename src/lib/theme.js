@@ -69,7 +69,7 @@ const fonts = {
 };
 
 const config = {
-  initialColorMode: "light",
+  initialColorMode: "system",
   useSystemColorMode: true
 };
 
