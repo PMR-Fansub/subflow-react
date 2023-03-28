@@ -1,3 +1,7 @@
+// Copyright (C) 2022-2023 PMR Fansub
+//
+// SPDX-License-Identifier: GPL-3.0-or-later
+
 import { EditIcon } from "@chakra-ui/icons";
 import {
   Avatar,

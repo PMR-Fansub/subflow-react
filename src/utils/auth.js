@@ -1,3 +1,7 @@
+// Copyright (C) 2022-2023 PMR Fansub
+//
+// SPDX-License-Identifier: GPL-3.0-or-later
+
 import { useToast } from "@chakra-ui/react";
 import { createContext, useContext, useState, useEffect } from "react";
 import { Navigate, Outlet, useLocation } from "react-router-dom";
