@@ -1,3 +1,7 @@
+// Copyright (C) 2022-2023 PMR Fansub
+//
+// SPDX-License-Identifier: GPL-3.0-or-later
+
 import { Text, Flex, Spinner } from "@chakra-ui/react";
 
 const Loading = () => {
