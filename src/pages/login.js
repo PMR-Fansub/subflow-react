@@ -1,17 +1,17 @@
 import {
-  Flex,
   Box,
-  FormControl,
-  FormLabel,
-  Input,
-  Stack,
-  Link,
   Button,
+  Flex,
+  FormControl,
+  FormErrorMessage,
+  FormLabel,
+  Image,
+  Input,
+  Link,
+  Stack,
   Text,
   useColorModeValue,
-  useToast,
-  FormErrorMessage,
-  Image
+  useToast
 } from "@chakra-ui/react";
 import { Link as RouterLink, useLocation, useNavigate } from "react-router-dom";
 import { useAuth } from "../utils/auth";
@@ -19,6 +19,7 @@ import { useForm } from "react-hook-form";
 import { useState } from "react";
 import SubFlowLogoFull from "../assets/subflow-full.svg";
 import SubFlowLogoFullWhite from "../assets/subflow-full-white.svg";
+import { getErrorMessageFromError } from "../utils/request-helper";
 
 const Login = () => {
   const toast = useToast();
@@ -51,12 +52,7 @@ const Login = () => {
         navigate(from);
       })
       .catch(error => {
-        let errorMessage = "";
-        if (error.response) {
-          errorMessage = `${error.response.data.message} (${error.response.data.code})`;
-        } else {
-          errorMessage = error.message;
-        }
+        let errorMessage = getErrorMessageFromError(error);
         toast({
           title: "登录失败",
           description: errorMessage,

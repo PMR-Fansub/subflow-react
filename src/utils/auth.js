@@ -1,9 +1,10 @@
 import { useToast } from "@chakra-ui/react";
-import { createContext, useContext, useState, useEffect } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import { Navigate, Outlet, useLocation } from "react-router-dom";
 import axios from "../config/axios";
 import Loading from "../pages/loading";
 import PropTypes from "prop-types";
+import { getErrorMessageFromError } from "./request-helper";
 
 let AuthContext = createContext(null);
 
@@ -66,12 +67,7 @@ const AuthProvider = ({ children }) => {
       })
       .catch(error => {
         clearLoginState();
-        let errorMessage = "";
-        if (error.response) {
-          errorMessage = `${error.response.data.message} (${error.response.data.code})`;
-        } else {
-          errorMessage = error.message;
-        }
+        let errorMessage = getErrorMessageFromError(error);
         toast({
           title: "获取用户信息失败",
           description: errorMessage,
@@ -101,9 +97,7 @@ const AuthProvider = ({ children }) => {
         });
       })
       .catch(error => {
-        const errorMessage = error.response
-          ? `${error.response.data.message} (${error.response.data.code})`
-          : error.message;
+        const errorMessage = getErrorMessageFromError(error);
         toast({
           title: "修改昵称失败",
           description: errorMessage,

@@ -1,18 +1,18 @@
 import {
-  Flex,
   Box,
+  Button,
+  Flex,
   FormControl,
   FormErrorMessage,
   FormLabel,
+  Image,
   Input,
   InputGroup,
   InputRightElement,
+  Link,
   Stack,
-  Button,
-  Image,
   Text,
   useColorModeValue,
-  Link,
   useToast
 } from "@chakra-ui/react";
 import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
@@ -22,6 +22,7 @@ import { useAuth } from "../utils/auth";
 import { useForm } from "react-hook-form";
 import SubFlowLogoFull from "../assets/subflow-full.svg";
 import SubFlowLogoFullWhite from "../assets/subflow-full-white.svg";
+import { getErrorMessageFromError } from "../utils/request-helper";
 
 const Register = () => {
   const toast = useToast();
@@ -52,12 +53,7 @@ const Register = () => {
         navigate("/login");
       })
       .catch(error => {
-        let errorMessage = "";
-        if (error.response) {
-          errorMessage = `${error.response.data.message} (${error.response.data.code})`;
-        } else {
-          errorMessage = error.message;
-        }
+        let errorMessage = getErrorMessageFromError(error);
         toast({
           title: "注册失败",
           description: errorMessage,

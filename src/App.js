@@ -11,7 +11,7 @@ import NotFound from "./pages/not-found";
 import Landing from "./pages/landing";
 import Loading from "./pages/loading";
 import Profile from "./pages/profile";
-// import Kanban from "./pages/Kanban";
+import Kanban from "./pages/kanban";
 
 const App = () => {
   return (
@@ -26,7 +26,7 @@ const App = () => {
             <Route path="register" element={<Register />} />
           </Route>
           <Route element={<RequireAuth />}>
-            {/* <Route path="kanban" element={<Kanban />} /> */}
+            <Route path="kanban" element={<Kanban />} />
             <Route path="profile" element={<Profile />} />
           </Route>
           <Route path="*" element={<NotFound />} />

@@ -3,7 +3,6 @@ import {
   chakra,
   Container,
   Image,
-  // Link,
   Stack,
   Text,
   useColorModeValue,
@@ -64,7 +63,7 @@ const Footer = () => {
           src={useColorModeValue(SubFlowLogoFull, SubFlowLogoFullWhite)}
           height="20px"
         />
-        <Text>© 2022 SubFlow All rights reserved. Powered by PMR Fansub</Text>
+        <Text>© 2023 SubFlow All rights reserved. Powered by PMR Fansub</Text>
         <Stack direction={"row"} spacing={6}>
           <SocialButton
             label={"Bilibili"}
