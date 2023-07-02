@@ -10,6 +10,7 @@ This document serves as a helper to get you started on contributing.
 - [Dependencies](#dependencies)
 - [Issues](#issues)
 - [Making changes](#making-changes)
+- [Copyright and license](#copyright-and-license)
 - [Committing changes](#committing-changes)
 - [Submitting a pull request](#submitting-a-pull-request)
 
@@ -55,6 +56,48 @@ a pull request with a fix.
    ```bash
    yarn start
    ```
+
+## Copyright and license
+
+Each source code file should contain information about the copyright holder(s)
+and the license(s) at the top of the file.
+
+Follow the format below for the copyright information:
+
+```
+// Copyright (C) [year] [copyright holder(s)]
+```
+
+and use [SPDX IDs](https://spdx.dev/ids/) for the license information:
+
+```
+// SPDX-License-Identifier: [SPDX license identifier expression]
+```
+
+Below is an example for a language that use `//` as its comment delimiter. Note
+that the line between the copyright information and the license information is
+optional.
+
+```
+// Copyright (C) 2022-2023 PMR Fansub
+//
+// SPDX-License-Identifier: GPL-3.0-or-later
+```
+
+While manually adding the copyright and license information is fine, you can use
+[fsfe/reuse-tool](https://github.com/fsfe/reuse-tool) to process a batch
+annotation:
+
+```bash
+reuse annotate --license "GPL-3.0-or-later" \
+               --copyright-style string-c \
+               --year "2022-2023" \
+               --copyright "PMR Fansub" \
+               foo/* bar/* ... # specify files to annotate
+```
+
+Unless explicitly requested, the copyright holder is _PMR Fansub_ and the SPDX
+license identifier is _GPL-3.0-or-later_.
 
 ## Committing changes
 
