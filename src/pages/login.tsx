@@ -30,8 +30,8 @@ const Login = () => {
   const location = useLocation();
   const auth = useAuth();
 
-  let from = location.state?.from.pathname || "/";
-  let [isSubmitting, setIsSubmitting] = useState(false);
+  const from = location.state?.from.pathname || "/";
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const {
     handleSubmit,
@@ -54,7 +54,7 @@ const Login = () => {
         });
         navigate(from);
       })
-      .catch(error => {
+      .catch((error: Error) => {
         let errorMessage = "";
         if (error.response) {
           errorMessage = `${error.response.data.message} (${error.response.data.code})`;

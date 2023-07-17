@@ -2,7 +2,7 @@
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
-import { Text, Flex, Spinner } from "@chakra-ui/react";
+import { Flex, Spinner, Text } from "@chakra-ui/react";
 
 const Loading = () => {
   const getRandomLoadingText = () => {
@@ -15,9 +15,9 @@ const Loading = () => {
     return loadingTexts[Math.floor(Math.random() * loadingTexts.length)];
   };
   return (
-    <Flex direction={"column"} width={"100vw"} align={"center"}>
-      <Spinner color={"brand.light"} size={"xl"} />
-      <Text marginTop={5} color={"gray.500"}>
+    <Flex direction="column" width="100vw" align="center">
+      <Spinner color="brand.light" size="xl" />
+      <Text marginTop={5} color="gray.500">
         {getRandomLoadingText()}
       </Text>
     </Flex>
