@@ -11,10 +11,10 @@ import {
   Flex,
   FormControl,
   FormLabel,
-  HStack,
   Heading,
-  Input,
+  HStack,
   IconButton,
+  Input,
   Modal,
   ModalBody,
   ModalCloseButton,
@@ -22,15 +22,14 @@ import {
   ModalFooter,
   ModalHeader,
   ModalOverlay,
-  Text,
   Stack,
-  VStack,
+  Text,
   useColorModeValue,
-  useDisclosure
+  useDisclosure,
+  VStack
 } from "@chakra-ui/react";
 import { useAuth } from "../utils/auth";
 import { useState } from "react";
-import PropTypes from "prop-types";
 
 const Profile = () => {
   const auth = useAuth();
@@ -91,7 +90,12 @@ const Profile = () => {
 
 export default Profile;
 
-const ProfileItem = ({ label, value }) => {
+interface ProfileItemProps {
+  label: string;
+  value: number | string | React.ReactNode;
+}
+
+const ProfileItem = ({ label, value }: ProfileItemProps) => {
   const isElement = typeof value === "object";
 
   return (
@@ -104,21 +108,13 @@ const ProfileItem = ({ label, value }) => {
   );
 };
 
-ProfileItem.propTypes = {
-  label: PropTypes.string.isRequired,
-  value: PropTypes.oneOfType([
-    PropTypes.number,
-    PropTypes.string,
-    PropTypes.element
-  ]).isRequired
-};
-
 const EditNicknameButton = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const auth = useAuth();
 
   const [input, setInput] = useState("");
-  const handleInputChange = e => setInput(e.target.value);
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) =>
+    setInput(e.target.value);
 
   const onCancel = () => {
     setInput("");

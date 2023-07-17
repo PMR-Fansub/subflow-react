@@ -3,36 +3,36 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 import {
+  Avatar,
   Box,
-  Flex,
-  Text,
-  IconButton,
   Button,
-  Stack,
-  HStack,
-  VStack,
   Collapse,
+  Flex,
+  HStack,
   Icon,
+  IconButton,
+  Image,
   Link,
   Menu,
   MenuButton,
-  MenuList,
-  Avatar,
   MenuDivider,
   MenuItem,
+  MenuList,
   Popover,
-  PopoverTrigger,
   PopoverContent,
+  PopoverTrigger,
+  Stack,
+  Text,
   useColorModeValue,
   // useBreakpointValue,
   useDisclosure,
-  Image
+  VStack
 } from "@chakra-ui/react";
 import {
-  HamburgerIcon,
-  CloseIcon,
   ChevronDownIcon,
-  ChevronRightIcon
+  ChevronRightIcon,
+  CloseIcon,
+  HamburgerIcon
 } from "@chakra-ui/icons";
 import { FiChevronDown } from "react-icons/fi";
 import { useNavigate } from "react-router-dom";
@@ -40,7 +40,6 @@ import { useAuth } from "../utils/auth";
 import SubFlowLogoFull from "../assets/subflow-full.svg";
 import SubFlowLogoFullWhite from "../assets/subflow-full-white.svg";
 import ThemeToggleButton from "./theme-toggle-button";
-import PropTypes from "prop-types";
 
 const WithSubnavigation = () => {
   const { isOpen, onToggle } = useDisclosure();
@@ -244,7 +243,13 @@ const DesktopNav = () => {
   );
 };
 
-const DesktopSubNav = ({ label, href, subLabel }) => {
+interface DesktopSubNavProps {
+  href: string;
+  label: string;
+  subLabel: string;
+}
+
+const DesktopSubNav = ({ href, label, subLabel }: DesktopSubNavProps) => {
   return (
     <Link
       href={href}
@@ -281,12 +286,6 @@ const DesktopSubNav = ({ label, href, subLabel }) => {
   );
 };
 
-DesktopSubNav.propTypes = {
-  label: PropTypes.string,
-  href: PropTypes.string,
-  subLabel: PropTypes.string
-};
-
 const MobileNav = () => {
   return (
     <Stack
@@ -301,7 +300,13 @@ const MobileNav = () => {
   );
 };
 
-const MobileNavItem = ({ label, children, href }) => {
+interface MobileNavItemProps {
+  children: React.ReactNode;
+  href: string;
+  label: string;
+}
+
+const MobileNavItem = ({ children, href, label }: MobileNavItemProps) => {
   const { isOpen, onToggle } = useDisclosure();
 
   return (
@@ -352,12 +357,6 @@ const MobileNavItem = ({ label, children, href }) => {
       </Collapse>
     </Stack>
   );
-};
-
-MobileNavItem.propTypes = {
-  label: PropTypes.string,
-  children: PropTypes.element,
-  href: PropTypes.string
 };
 
 const NAV_ITEMS = [

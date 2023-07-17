@@ -16,9 +16,14 @@ import {
 import { RiBilibiliFill, RiGithubFill } from "react-icons/ri";
 import SubFlowLogoFull from "../assets/subflow-full.svg";
 import SubFlowLogoFullWhite from "../assets/subflow-full-white.svg";
-import PropTypes from "prop-types";
 
-const SocialButton = ({ children, label, href }) => {
+interface SocialButtonProps {
+  children: React.ReactNode;
+  label: string;
+  href: string;
+}
+
+const SocialButton = ({ children, label, href }: SocialButtonProps) => {
   return (
     <chakra.button
       bg={useColorModeValue("blackAlpha.100", "whiteAlpha.100")}
@@ -41,12 +46,6 @@ const SocialButton = ({ children, label, href }) => {
       {children}
     </chakra.button>
   );
-};
-
-SocialButton.propTypes = {
-  children: PropTypes.element,
-  label: PropTypes.string,
-  href: PropTypes.string
 };
 
 const Footer = () => {

@@ -20,7 +20,7 @@ import Profile from "./pages/profile";
 const App = () => {
   return (
     <AuthProvider>
-      <Flex direction={"column"} minHeight={"100vh"} justify={"space-between"}>
+      <Flex direction="column" minHeight="100vh" justify="space-between">
         <NavBar />
         <Routes>
           <Route index element={<Landing />} />
