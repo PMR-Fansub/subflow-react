@@ -23,6 +23,7 @@ import { useForm } from "react-hook-form";
 import { useState } from "react";
 import SubFlowLogoFull from "../assets/subflow-full.svg";
 import SubFlowLogoFullWhite from "../assets/subflow-full-white.svg";
+import { AxiosError } from "axios";
 
 const Login = () => {
   const toast = useToast();
@@ -54,7 +55,7 @@ const Login = () => {
         });
         navigate(from);
       })
-      .catch((error: Error) => {
+      .catch((error: AxiosError) => {
         let errorMessage = "";
         if (error.response) {
           errorMessage = `${error.response.data.message} (${error.response.data.code})`;
