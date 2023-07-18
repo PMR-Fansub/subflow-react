@@ -3,20 +3,20 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 import {
-  Flex,
   Box,
+  Button,
+  Flex,
   FormControl,
   FormErrorMessage,
   FormLabel,
+  Image,
   Input,
   InputGroup,
   InputRightElement,
+  Link,
   Stack,
-  Button,
-  Image,
   Text,
   useColorModeValue,
-  Link,
   useToast
 } from "@chakra-ui/react";
 import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
@@ -26,13 +26,14 @@ import { useAuth } from "../utils/auth";
 import { useForm } from "react-hook-form";
 import SubFlowLogoFull from "../assets/subflow-full.svg";
 import SubFlowLogoFullWhite from "../assets/subflow-full-white.svg";
+import { AxiosError } from "axios";
 
 const Register = () => {
   const toast = useToast();
   const navigate = useNavigate();
   const auth = useAuth();
   const [showPassword, setShowPassword] = useState(false);
-  let [isSubmitting, _] = useState(false);
+  const [isSubmitting, _] = useState(false);
   const {
     handleSubmit,
     register,
@@ -42,7 +43,14 @@ const Register = () => {
 
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-  const handleRegister = values => {
+  const handleRegister = (values: {
+    username: string;
+    email: string;
+    password: string;
+    repeatPassword: string;
+  }) => {
+    console.log(values);
+
     auth
       .register(values.username, values.email, values.password)
       .then(() => {
@@ -55,7 +63,7 @@ const Register = () => {
         });
         navigate("/login");
       })
-      .catch(error => {
+      .catch((error: AxiosError) => {
         let errorMessage = "";
         if (error.response) {
           errorMessage = `${error.response.data.message} (${error.response.data.code})`;

@@ -7,6 +7,7 @@ import { createContext, useContext, useEffect, useState } from "react";
 import { Navigate, Outlet, useLocation } from "react-router-dom";
 import axios from "../config/axios";
 import Loading from "../pages/loading";
+import { AxiosError } from "axios";
 
 const AuthContext = createContext(null);
 
@@ -71,7 +72,7 @@ const AuthProvider = ({ children }: AuthProviderProps) => {
         setUserInfo(response.data.data);
         localStorage.setItem("userInfo", JSON.stringify(response.data.data));
       })
-      .catch(error => {
+      .catch((error: AxiosError) => {
         clearLoginState();
         let errorMessage = "";
         if (error.response) {
