@@ -67,7 +67,7 @@ const Footer = () => {
           src={useColorModeValue(SubFlowLogoFull, SubFlowLogoFullWhite)}
           height="20px"
         />
-        <Text>© 2022 SubFlow All rights reserved. Powered by PMR Fansub</Text>
+        <Text>© 2022-2023 PMR Fansub. All rights reserved.</Text>
         <Stack direction={"row"} spacing={6}>
           <SocialButton
             label={"Bilibili"}
