@@ -35,7 +35,7 @@ import {
   HamburgerIcon
 } from "@chakra-ui/icons";
 import { FiChevronDown } from "react-icons/fi";
-import { useNavigate } from "react-router-dom";
+import { Link as RouterLink, useNavigate } from "react-router-dom";
 import { useAuth } from "../utils/auth";
 import SubFlowLogoFull from "../assets/subflow-full.svg";
 import SubFlowLogoFullWhite from "../assets/subflow-full-white.svg";
@@ -78,17 +78,6 @@ const WithSubnavigation = () => {
           justify={{ base: "center", md: "start" }}
           align="center"
         >
-          {/* <Text
-            textAlign={useBreakpointValue({ base: "center", md: "left" })}
-            fontFamily={"heading"}
-            fontWeight={700}
-            fontSize={"xl"}
-            color={useColorModeValue("gray.800", "white")}
-            cursor="pointer"
-            onClick={() => navigate("/")}
-          >
-            SubFlow
-          </Text> */}
           <Image
             cursor="pointer"
             src={useColorModeValue(SubFlowLogoFull, SubFlowLogoFullWhite)}
@@ -169,9 +158,9 @@ const WithSubnavigation = () => {
                   fontSize={"sm"}
                   fontWeight={600}
                   color={"white"}
-                  bg={"brand.light"}
+                  bg={useColorModeValue("brand.light", "brand.dark")}
                   _hover={{
-                    bg: "brand.right"
+                    bg: useColorModeValue("brand.dark", "brand.light")
                   }}
                   onClick={() => {
                     navigate("/register");
@@ -206,8 +195,9 @@ const DesktopNav = () => {
           <Popover trigger={"hover"} placement={"bottom-start"}>
             <PopoverTrigger>
               <Link
+                as={RouterLink}
                 p={2}
-                href={navItem.href ?? "#"}
+                to={navItem.href ?? "#"}
                 fontSize={"md"}
                 fontWeight={500}
                 color={linkColor}
@@ -252,7 +242,8 @@ interface DesktopSubNavProps {
 const DesktopSubNav = ({ href, label, subLabel }: DesktopSubNavProps) => {
   return (
     <Link
-      href={href}
+      as={RouterLink}
+      to={href}
       role={"group"}
       display={"block"}
       p={2}
@@ -313,8 +304,8 @@ const MobileNavItem = ({ children, href, label }: MobileNavItemProps) => {
     <Stack spacing={4} onClick={children && onToggle}>
       <Flex
         py={2}
-        as={Link}
-        href={href ?? "#"}
+        as={RouterLink}
+        to={href ?? "#"}
         justify={"space-between"}
         align={"center"}
         _hover={{
@@ -349,7 +340,7 @@ const MobileNavItem = ({ children, href, label }: MobileNavItemProps) => {
         >
           {children &&
             children.map(child => (
-              <Link key={child.label} py={2} href={child.href}>
+              <Link as={RouterLink} key={child.label} py={2} to={child.href}>
                 {child.label}
               </Link>
             ))}
