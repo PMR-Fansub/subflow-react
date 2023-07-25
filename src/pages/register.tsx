@@ -3,6 +3,8 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 import {
+  Alert,
+  AlertIcon,
   Box,
   Button,
   Flex,
@@ -156,6 +158,10 @@ const Register = () => {
         >
           <form onSubmit={handleSubmit(handleRegister)}>
             <Stack spacing={4}>
+              <Alert status="warning">
+                <AlertIcon />
+                功能开发中，敬请期待
+              </Alert>
               <FormItem
                 name="username"
                 label="用户名"
@@ -201,6 +207,7 @@ const Register = () => {
               />
               <Stack spacing={10} pt={2}>
                 <Button
+                  isDisabled
                   loadingText="Submitting"
                   bg={"green.500"}
                   color={"white"}

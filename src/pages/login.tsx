@@ -3,19 +3,21 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 import {
-  Flex,
+  Alert,
+  AlertIcon,
   Box,
-  FormControl,
-  FormLabel,
-  Input,
-  Stack,
-  Link,
   Button,
+  Flex,
+  FormControl,
+  FormErrorMessage,
+  FormLabel,
+  Image,
+  Input,
+  Link,
+  Stack,
   Text,
   useColorModeValue,
-  useToast,
-  FormErrorMessage,
-  Image
+  useToast
 } from "@chakra-ui/react";
 import { Link as RouterLink, useLocation, useNavigate } from "react-router-dom";
 import { useAuth } from "../utils/auth";
@@ -106,6 +108,10 @@ const Login = () => {
             <Stack spacing={4}>
               <FormControl id="username" isInvalid={errors.username}>
                 <FormLabel htmlFor="username">用户名</FormLabel>
+                <Alert status="warning">
+                  <AlertIcon />
+                  功能开发中，敬请期待
+                </Alert>
                 <Input
                   id="username"
                   autoComplete="username"
@@ -141,6 +147,7 @@ const Login = () => {
                 <Button
                   bg={"brand.light"}
                   color={"white"}
+                  isDisabled
                   _hover={{
                     bg: "brand.dark"
                   }}
