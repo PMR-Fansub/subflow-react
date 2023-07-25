@@ -106,12 +106,12 @@ const Login = () => {
         >
           <form onSubmit={handleSubmit(handleLogin)}>
             <Stack spacing={4}>
+              <Alert status="warning">
+                <AlertIcon />
+                功能开发中，敬请期待
+              </Alert>
               <FormControl id="username" isInvalid={errors.username}>
                 <FormLabel htmlFor="username">用户名</FormLabel>
-                <Alert status="warning">
-                  <AlertIcon />
-                  功能开发中，敬请期待
-                </Alert>
                 <Input
                   id="username"
                   autoComplete="username"
