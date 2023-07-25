@@ -354,5 +354,9 @@ const NAV_ITEMS = [
   {
     label: "看板",
     href: "/kanban"
+  },
+  {
+    label: "工具",
+    href: "/tools"
   }
 ];
