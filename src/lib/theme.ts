@@ -10,32 +10,6 @@ const colors = {
   brand: {
     light: "#0052cc",
     dark: "#0047b3"
-  },
-  alucard: {
-    background: "#f8f8f2",
-    foreground: "#282a36",
-    selection: "#e4e7fa",
-    comment: "#9eaee0",
-    red: "#ee4444",
-    orange: "#eea75b",
-    green: "#1cc647",
-    blue: "#5555ff",
-    purple: "#956bd1",
-    cyan: "#6dcbdf",
-    pink: "#e55fac"
-  },
-  dracula: {
-    background: "#282a36",
-    foreground: "#f8f8f2",
-    selection: "#44475a",
-    comment: "#6272a4",
-    red: "#ff5555",
-    orange: "#ffb86c",
-    yellow: "#f1fa8c",
-    green: "#50fa7b",
-    purple: "#bd93f9",
-    cyan: "#8be9fd",
-    pink: "#ff79c6"
   }
 };
 
