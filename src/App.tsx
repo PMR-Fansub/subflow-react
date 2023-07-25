@@ -15,6 +15,8 @@ import NotFound from "./pages/not-found";
 import Landing from "./pages/landing";
 import Loading from "./pages/loading";
 import Profile from "./pages/profile";
+import Tools from "./pages/tools";
+import CheatSheet from "./pages/tools/cheatsheet";
 // import Kanban from "./pages/Kanban";
 
 const App = () => {
@@ -25,6 +27,8 @@ const App = () => {
         <Routes>
           <Route index element={<Landing />} />
           <Route path="loading" element={<Loading />} />
+          <Route path="tools" element={<Tools />} />
+          <Route path="tools/cheatsheet" element={<CheatSheet />} />
           <Route element={<RequireNotAuth />}>
             <Route path="login" element={<Login />} />
             <Route path="register" element={<Register />} />

@@ -1,0 +1,516 @@
+[
+  {
+    "romaji": "manzityan",
+    "source": "卍ちゃん",
+    "target": "卍酱",
+    "notes": null
+  },
+  {
+    "romaji": "reityan",
+    "source": "レイちゃん",
+    "target": "莲酱",
+    "notes": "「霊感があるのてレイちゃん」所以本应该是「灵酱」，不过现在将错就错沿用「莲酱」了"
+  },
+  {
+    "romaji": "usagisan",
+    "source": "うさぎさん",
+    "target": "小兔子",
+    "notes": "姓「里山」(satoyama，里山)"
+  },
+  {
+    "romaji": "kumakun",
+    "source": "くまくん",
+    "target": "小熊",
+    "notes": "「熊君」亦可"
+  },
+  {
+    "romaji": "risukun",
+    "source": "りすくん",
+    "target": "松鼠君",
+    "notes": "「小松鼠」亦可，也叫「歯茎くん」（hagukikun，牙龈君）"
+  },
+  {
+    "romaji": "mattiurinosyôzyotyan",
+    "source": "マッチ売りの少女ちゃん",
+    "target": "卖火柴的小女孩",
+    "notes": "「小火柴」亦可"
+  },
+  {
+    "romaji": "ôkamikun",
+    "source": "おおかみくん",
+    "target": "狼君",
+    "notes": null
+  },
+  {
+    "romaji": "sirayukihime",
+    "source": "白雪姫",
+    "target": "白雪公主",
+    "notes": null
+  },
+  {
+    "romaji": "akazukintyan",
+    "source": "赤ずきんちゃん",
+    "target": "小红帽",
+    "notes": null
+  },
+  {
+    "romaji": "mizuuminomegamityan",
+    "source": "湖の女神ちゃん",
+    "target": "湖中女神",
+    "notes": null
+  },
+  {
+    "romaji": "nananinnokobito",
+    "source": "7人の小人",
+    "target": "七个小矮人",
+    "notes": null
+  },
+  {
+    "romaji": "ningyohimetyan",
+    "source": "人魚姫ちゃん",
+    "target": "人鱼公主",
+    "notes": null
+  },
+  {
+    "romaji": "mogurasan",
+    "source": "もぐらさん",
+    "target": "鼹鼠",
+    "notes": null
+  },
+  {
+    "romaji": "nagarebosi",
+    "source": "流れ星",
+    "target": "流星",
+    "notes": null
+  },
+  {
+    "romaji": "tapiokaman",
+    "source": "タピオカマン",
+    "target": "珍珠奶茶侠",
+    "notes": null
+  },
+  {
+    "romaji": "tîzuhattoguman",
+    "source": "チーズハットグマン",
+    "target": "芝士热狗侠",
+    "notes": null
+  },
+  {
+    "romaji": "makaronnatyan",
+    "source": "マカロンナちゃん",
+    "target": "马卡龙娜酱",
+    "notes": null
+  },
+  {
+    "romaji": "dorobôneko",
+    "source": "ドロボー猫",
+    "target": "小偷猫",
+    "notes": null
+  },
+  {
+    "romaji": "kirinsan",
+    "source": "きりんさん",
+    "target": "长颈鹿",
+    "notes": null
+  },
+  { "romaji": "kagami", "source": "かがみ", "target": "魔镜", "notes": null },
+  {
+    "romaji": "katapattoman",
+    "source": "肩パットマン",
+    "target": "肩垫Man",
+    "notes": null
+  },
+  {
+    "romaji": "otôto",
+    "source": "おとーと",
+    "target": "弟弟",
+    "notes": "「うさぎさん」的弟弟"
+  },
+  {
+    "romaji": "mama",
+    "source": "ママ",
+    "target": "妈妈",
+    "notes": "「うさぎさん」的妈妈"
+  },
+  {
+    "romaji": "papa",
+    "source": "パパ",
+    "target": "爸爸",
+    "notes": "「うさぎさん」的爸爸，是牛"
+  },
+  {
+    "romaji": "santasan",
+    "source": "サンタさん",
+    "target": "圣诞老人",
+    "notes": null
+  },
+  {
+    "romaji": "butasan",
+    "source": "ブタさん",
+    "target": "猪同学",
+    "notes": null
+  },
+  {
+    "romaji": "aiamumuisya",
+    "source": "あいあむむ医者",
+    "target": "-",
+    "notes": "青蛙医生"
+  },
+  { "romaji": "kappa", "source": "カッパ", "target": "河童", "notes": null },
+  {
+    "romaji": "kurousagisan",
+    "source": "黒うさぎさん",
+    "target": "小兔子（黑）",
+    "notes": "姓「柏原」（kasiwabara，柏原）"
+  },
+  {
+    "romaji": "kurokumakun",
+    "source": "黒くまくん",
+    "target": "小熊（黑）",
+    "notes": null
+  },
+  {
+    "romaji": "sarukun",
+    "source": "サルくん",
+    "target": "猴子君",
+    "notes": null
+  },
+  { "romaji": "inusan", "source": "イヌさん", "target": "狗桑", "notes": null },
+  { "romaji": "innu", "source": "イッヌ", "target": "狗", "notes": null },
+  { "romaji": "kizi", "source": "キジ", "target": "山鸡", "notes": null },
+  {
+    "romaji": "wanikun",
+    "source": "ワニくん",
+    "target": "鳄鱼君",
+    "notes": null
+  },
+  {
+    "romaji": "pûdorutyan",
+    "source": "プードルちゃん",
+    "target": "卷毛狗酱",
+    "notes": null
+  },
+  {
+    "romaji": "ranpunomazin",
+    "source": "ランプの魔神",
+    "target": "油灯的魔神",
+    "notes": null
+  },
+  {
+    "romaji": "songokû",
+    "source": "孫悟空",
+    "target": "孙悟空",
+    "notes": null
+  },
+  {
+    "romaji": "sagozyô",
+    "source": "沙悟浄",
+    "target": "沙悟净",
+    "notes": null
+  },
+  {
+    "romaji": "tyohakkai",
+    "source": "猪八戒",
+    "target": "猪八戒",
+    "notes": null
+  },
+  {
+    "romaji": "hakubaninottaôzisama",
+    "source": "白馬に乗った王子様",
+    "target": "白马王子",
+    "notes": null
+  },
+  {
+    "romaji": "momotarô",
+    "source": "桃太郎",
+    "target": "桃太郎",
+    "notes": "「ゆるふわ」和「桃太郎」系列"
+  },
+  {
+    "romaji": "ojîsan",
+    "source": "おじいさん",
+    "target": "老爷爷",
+    "notes": "「ゆるふわ」和「桃太郎」系列"
+  },
+  {
+    "romaji": "obâsan",
+    "source": "おばあさん",
+    "target": "老奶奶",
+    "notes": "「ゆるふわ」和「桃太郎」系列"
+  },
+  {
+    "romaji": "suikako",
+    "source": "すいか子",
+    "target": "西瓜子",
+    "notes": "实际为「緑鬼」"
+  },
+  { "romaji": "akaoni", "source": "赤鬼", "target": "赤鬼", "notes": null },
+  { "romaji": "kioni", "source": "黄鬼", "target": "黄鬼", "notes": null },
+  { "romaji": "aooni", "source": "青鬼", "target": "青鬼", "notes": null },
+  { "romaji": "ryokuki", "source": "緑鬼", "target": "绿鬼", "notes": null },
+  { "romaji": "inukiti", "source": "犬吉", "target": "犬吉", "notes": null },
+  { "romaji": "kawazima", "source": "川島", "target": "川岛", "notes": null },
+  { "romaji": "suzuki", "source": "すずき", "target": "铃木", "notes": null },
+  { "romaji": "kawano", "source": "かわの", "target": "川野", "notes": null },
+  { "romaji": "sensê", "source": "先生", "target": "老师", "notes": null },
+  { "romaji": "kageyama", "source": "影山", "target": "影山", "notes": null },
+  { "romaji": "ayase", "source": "あやせ", "target": "绫濑", "notes": null },
+  {
+    "romaji": "yamamotoaruhureddo",
+    "source": "山本アルフレッド",
+    "target": "山本·艾尔弗雷德",
+    "notes": null
+  },
+  {
+    "romaji": "ozyôsama",
+    "source": "お嬢様",
+    "target": "大小姐",
+    "notes": "本名「伊集院純恋」（izyûinsumire，伊集院纯恋）"
+  },
+  {
+    "romaji": "situzi",
+    "source": "執事",
+    "target": "管家",
+    "notes": "本名「田中颯太」（tanakahûta，田中飒太）"
+  },
+  {
+    "romaji": "mêdo",
+    "source": "メイド",
+    "target": "女仆",
+    "notes": "本名「宮本しぼ」（miyamotosibo）"
+  },
+  {
+    "romaji": "izyûinsuzune",
+    "source": "伊集院鈴音",
+    "target": "伊集院铃音",
+    "notes": "「伊集院純恋」的姐姐"
+  },
+  {
+    "romaji": "înazukekun",
+    "source": "許嫁くん",
+    "target": "未婚夫",
+    "notes": "本名「金政一貴」（kanemasa...，金政一贵），「伊集院鈴音」的未婚夫（双方实际已结婚）"
+  },
+  {
+    "romaji": "momokun",
+    "source": "ももくん",
+    "target": "桃子君",
+    "notes": null
+  },
+  {
+    "romaji": "mikantyan",
+    "source": "みかんちゃん",
+    "target": "橘子酱",
+    "notes": "「ももくん」的妹妹"
+  },
+  {
+    "romaji": "guringuringoringorinbarinbarin",
+    "source": "グリグリンゴリンゴリンバリンバリン",
+    "target": "古林谷林戈林格林巴林巴林",
+    "notes": "「伊集院鈴音」的养的地狱三头犬"
+  },
+  {
+    "romaji": "bobibobi",
+    "source": "ボビボビ",
+    "target": "波比波比",
+    "notes": "「伊集院鈴音」养的老虎"
+  },
+  {
+    "romaji": "itokonosituzisan",
+    "source": "いとこの執事さん",
+    "target": "表亲戚的管家",
+    "notes": "「ももくん」家的管家"
+  },
+  {
+    "romaji": "aiueoko",
+    "source": "あいうえお子",
+    "target": "aiueo子",
+    "notes": null
+  },
+  {
+    "romaji": "kakikukekokun",
+    "source": "かきくけこ君",
+    "target": "kakikukeko君",
+    "notes": "「ka行君」亦可"
+  },
+  {
+    "romaji": "sasisusesokun",
+    "source": "さしすせそ君",
+    "target": "sashisuseso君",
+    "notes": "「sa行君」亦可"
+  },
+  {
+    "romaji": "tatitutetokun",
+    "source": "たちつてと君",
+    "target": "tachitsuteto君",
+    "notes": "「ta行君」亦可"
+  },
+  {
+    "romaji": "naninunenokun",
+    "source": "なにぬねの君",
+    "target": "naninuneno",
+    "notes": "「na行君」亦可"
+  },
+  {
+    "romaji": "mamimumemo",
+    "source": "まみむめも",
+    "target": "mamimumemo",
+    "notes": "「ma行小姐」亦可"
+  },
+  { "romaji": "êbîsîko", "source": "ABC子", "target": "ABC子", "notes": null },
+  {
+    "romaji": "puritjiapinku",
+    "source": "プリティアピンク",
+    "target": "战队美少女粉p",
+    "notes": "最初翻译为「PRETTIA粉红」、「粉红小天使」等"
+  },
+  {
+    "romaji": "puritjiaburû",
+    "source": "プリティアブルー",
+    "target": "战队美少女蓝p",
+    "notes": "最初翻译为「PRETTIA碧蓝」"
+  },
+  {
+    "romaji": "puritjiagurîn",
+    "source": "プリティアグリーン",
+    "target": "战队美少女绿p",
+    "notes": "最初翻译为「PRETTIA墨绿」"
+  },
+  {
+    "romaji": "puritjiaierô",
+    "source": "プリティアイエロー",
+    "target": "战队美少女黄p",
+    "notes": "最初翻译为「PRETTIA黄金」"
+  },
+  {
+    "romaji": "puritjiahowaito",
+    "source": "プリティアホワイト",
+    "target": "战队美少女白p",
+    "notes": null
+  },
+  { "romaji": "kaibutu", "source": "怪物", "target": "怪物", "notes": null },
+  {
+    "romaji": "puryupuryupuryuryuryuryu",
+    "source": "プリュプリュプリュリュリュりゅ",
+    "target": "布鲁布鲁布鲁鲁鲁鲁",
+    "notes": null
+  },
+  {
+    "romaji": "buttobasunzyâ",
+    "source": "ぶっ飛ばすんジャー",
+    "target": "干爆战队",
+    "notes": null
+  },
+  {
+    "romaji": "orihimetan",
+    "source": "織姫たん",
+    "target": "织女碳",
+    "notes": null
+  },
+  {
+    "romaji": "hikobosisan",
+    "source": "彦星さん",
+    "target": "牛郎",
+    "notes": null
+  },
+  {
+    "romaji": "pîtyan",
+    "source": "ぴーちゃん",
+    "target": "P酱",
+    "notes": null
+  },
+  { "romaji": "nakkî", "source": "なっきー", "target": "纳奇", "notes": null },
+  {
+    "romaji": "zyekkî",
+    "source": "ジェッキー",
+    "target": "杰奇",
+    "notes": null
+  },
+  {
+    "romaji": "tôisan",
+    "source": "遠井さん",
+    "target": "远井桑",
+    "notes": "「远井同学」亦可"
+  },
+  { "romaji": "mâkun", "source": "まーくん", "target": "ma君", "notes": null },
+  {
+    "romaji": "nakiemon",
+    "source": "なきえもん",
+    "target": "纳奇A梦",
+    "notes": null
+  },
+  { "romaji": "pîemon", "source": "Pえもん", "target": "PA梦", "notes": null },
+  {
+    "romaji": "nanîtyan",
+    "source": "なにーちゃん",
+    "target": "那妮酱",
+    "notes": null
+  },
+  { "romaji": "nâsan", "source": "なーさん", "target": "纳桑", "notes": null },
+  {
+    "romaji": "merumerukyaramerupîtayan",
+    "source": "メルメル.キャラメル.Pたやん",
+    "target": "芽留.奶糖.P碳",
+    "notes": null
+  },
+  { "romaji": "hakase", "source": "はかせ", "target": "博士君", "notes": null },
+  {
+    "romaji": "pmaruotoko",
+    "source": "P丸男",
+    "target": "P丸男",
+    "notes": null
+  },
+  { "romaji": "êgata", "source": "A型", "target": "A型", "notes": null },
+  { "romaji": "bîgata", "source": "B型", "target": "B型", "notes": null },
+  { "romaji": "ôgata", "source": "O型", "target": "O型", "notes": null },
+  { "romaji": "êbîgata", "source": "AB型", "target": "AB型", "notes": null },
+  { "romaji": "takkun", "source": "たっくん", "target": "拓君", "notes": null },
+  {
+    "romaji": "rinatyan",
+    "source": "りなちゃん",
+    "target": "丽奈酱",
+    "notes": null
+  },
+  {
+    "romaji": "mikatyan",
+    "source": "ミカちゃん",
+    "target": "美香酱",
+    "notes": null
+  },
+  {
+    "romaji": "hayatokun",
+    "source": "ハヤトくん",
+    "target": "隼人君",
+    "notes": null
+  },
+  {
+    "romaji": "takanosan",
+    "source": "高野さん",
+    "target": "高野同学",
+    "notes": null
+  },
+  {
+    "romaji": "kurumiryûgen",
+    "source": "胡桃龍玄",
+    "target": "胡桃龙玄",
+    "notes": null
+  },
+  {
+    "romaji": "asahinakun",
+    "source": "朝比奈君",
+    "target": "朝比奈君",
+    "notes": null
+  },
+  {
+    "romaji": "kisaragikun",
+    "source": "如月君",
+    "target": "如月君",
+    "notes": null
+  },
+  {
+    "romaji": "himemiyamomo",
+    "source": "姫宮もも",
+    "target": "姬宫桃子",
+    "notes": null
+  }
+]
