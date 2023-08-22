@@ -76,6 +76,7 @@ const WithSubnavigation = () => {
         <Flex
           flex={{ base: 1 }}
           justify={{ base: "center", md: "start" }}
+          px={5}
           align="center"
         >
           <Image

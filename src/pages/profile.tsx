@@ -76,11 +76,11 @@ const Profile = () => {
           <ProfileItem label="邮件地址" value={auth.userInfo.email} />
           <ProfileItem
             label="注册时间"
-            value={new Date(auth.userInfo.register_time).toLocaleString()}
+            value={new Date(auth.userInfo.registerTime).toLocaleString()}
           />
           <ProfileItem
             label="最后登录时间"
-            value={new Date(auth.userInfo.login_time).toLocaleString()}
+            value={new Date(auth.userInfo.loginTime).toLocaleString()}
           />
         </VStack>
       </Box>

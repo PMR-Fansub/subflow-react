@@ -9,11 +9,11 @@ const instance = axios.create({
 });
 
 instance.interceptors.request.use(config => {
-  const tokenName = localStorage.getItem("tokenName");
-  const tokenValue = localStorage.getItem("tokenValue");
-  if (tokenName && tokenValue) {
-    config.headers[tokenName] = tokenValue;
-  }
+  // const token = localStorage.getItem("token")
+  // if (token) {
+  //   config.headers["Authorization"] = `Bearer ${token}`
+  // }
+  config.withCredentials = true;
   return config;
 });
 

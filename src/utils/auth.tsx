@@ -30,7 +30,7 @@ const AuthProvider = ({ children }: AuthProviderProps) => {
   };
 
   const register = (username: string, email: string, password: string) => {
-    return axios.post("/user/register", {
+    return axios.post("/auth/register", {
       username,
       email,
       password
@@ -39,16 +39,13 @@ const AuthProvider = ({ children }: AuthProviderProps) => {
 
   const login = (username: string, password: string) => {
     return axios
-      .post("/user/login", {
+      .post("/auth/login", {
         username,
         password
       })
       .then(response => {
         const resBody = response.data;
-        const tokenInfo = resBody.data.saTokenInfo;
         const userInfo = resBody.data.userInfo;
-        localStorage.setItem("tokenName", tokenInfo.tokenName);
-        localStorage.setItem("tokenValue", tokenInfo.tokenValue);
         localStorage.setItem("userInfo", JSON.stringify(userInfo));
         setUserInfo(userInfo);
         return resBody;
@@ -97,7 +94,7 @@ const AuthProvider = ({ children }: AuthProviderProps) => {
 
   const updateUserInfo = (nickname: string) => {
     axios
-      .patch(`/user/${userInfo.id}`, { nickname })
+      .patch("/user", { nickname })
       .then(() => {
         setUserInfo({ ...userInfo, nickname });
         localStorage.setItem("userInfo", JSON.stringify(userInfo));
