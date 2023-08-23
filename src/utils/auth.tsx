@@ -3,13 +3,43 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 import { useToast } from "@chakra-ui/react";
-import { createContext, useContext, useEffect, useState } from "react";
+import React, {
+  createContext,
+  FC,
+  useContext,
+  useEffect,
+  useState
+} from "react";
 import { Navigate, Outlet, useLocation } from "react-router-dom";
 import axios from "../config/axios";
 import Loading from "../pages/loading";
-import { AxiosError } from "axios";
+import { AxiosError, AxiosPromise } from "axios";
 
-const AuthContext = createContext(null);
+interface UserInfo {
+  id: string;
+  username: string;
+  email: string;
+  nickname: string;
+  avatar: string;
+  registerTime: string;
+  loginTime: string;
+}
+
+interface IAuthContext {
+  userInfo: UserInfo;
+
+  login(username: string, password: string): AxiosPromise;
+
+  logout(): void;
+
+  register(username: string, email: string, password: string): AxiosPromise;
+
+  getUserInfo(callback: () => void): void;
+
+  updateUserInfo(nickname: string): void;
+}
+
+const AuthContext = createContext<IAuthContext | null>(null);
 
 const useAuth = () => {
   return useContext(AuthContext);
@@ -19,11 +49,12 @@ interface AuthProviderProps {
   children: React.ReactNode;
 }
 
-const AuthProvider = ({ children }: AuthProviderProps) => {
+const AuthProvider: FC<AuthProviderProps> = ({ children }) => {
   const toast = useToast();
-  const [userInfo, setUserInfo] = useState(
-    JSON.parse(localStorage.getItem("userInfo"))
-  );
+
+  const item = localStorage.getItem("userInfo");
+  const [userInfo, setUserInfo] = useState(item ? JSON.parse(item) : null);
+
   const clearLoginState = () => {
     setUserInfo(null);
     localStorage.clear();
@@ -71,7 +102,7 @@ const AuthProvider = ({ children }: AuthProviderProps) => {
       })
       .catch((error: AxiosError) => {
         clearLoginState();
-        let errorMessage = "";
+        let errorMessage: string;
         if (error.response) {
           errorMessage = `${error.response.data.message} (${error.response.data.code})`;
         } else {
@@ -132,7 +163,7 @@ const AuthProvider = ({ children }: AuthProviderProps) => {
 };
 
 const RequireAuth = () => {
-  const auth = useAuth();
+  const auth = useAuth()!;
   const location = useLocation();
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
@@ -151,7 +182,7 @@ const RequireAuth = () => {
 };
 
 const RequireNotAuth = () => {
-  const auth = useAuth();
+  const auth = useAuth()!;
 
   return auth.userInfo ? <Navigate to="/" replace /> : <Outlet />;
 };

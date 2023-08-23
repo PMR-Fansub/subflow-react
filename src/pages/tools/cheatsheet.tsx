@@ -54,7 +54,7 @@ const TranslationTable = ({ name, data }: TranslationTableProps) => (
 
 const CheatSheet = () => {
   const characters = _characters as TranslationProps[];
-  const series = _series as TranslationProps;
+  const series = _series as TranslationProps[];
 
   return (
     <Container maxW="5xl">

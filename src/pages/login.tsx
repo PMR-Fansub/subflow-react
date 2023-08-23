@@ -27,11 +27,16 @@ import SubFlowLogoFull from "../assets/subflow-full.svg";
 import SubFlowLogoFullWhite from "../assets/subflow-full-white.svg";
 import { AxiosError } from "axios";
 
+interface LoginForm {
+  username: string;
+  password: string;
+}
+
 const Login = () => {
   const toast = useToast();
   const navigate = useNavigate();
   const location = useLocation();
-  const auth = useAuth();
+  const auth = useAuth()!;
 
   const from = location.state?.from.pathname || "/";
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -40,9 +45,9 @@ const Login = () => {
     handleSubmit,
     register,
     formState: { errors }
-  } = useForm();
+  } = useForm<LoginForm>();
 
-  const handleLogin = values => {
+  const handleLogin = (values: LoginForm) => {
     setIsSubmitting(true);
     const username = values.username;
     const password = values.password;
@@ -58,7 +63,7 @@ const Login = () => {
         navigate(from);
       })
       .catch((error: AxiosError) => {
-        let errorMessage = "";
+        let errorMessage: string;
         if (error.response) {
           errorMessage = `${error.response.data.message} (${error.response.data.code})`;
         } else {
@@ -110,7 +115,7 @@ const Login = () => {
                 <AlertIcon />
                 功能开发中，敬请期待
               </Alert>
-              <FormControl id="username" isInvalid={errors.username}>
+              <FormControl id="username" isInvalid={!!errors.username}>
                 <FormLabel htmlFor="username">用户名</FormLabel>
                 <Input
                   id="username"
@@ -121,7 +126,7 @@ const Login = () => {
                   {errors.username && errors.username.message}
                 </FormErrorMessage>
               </FormControl>
-              <FormControl id="password" isInvalid={errors.password}>
+              <FormControl id="password" isInvalid={!!errors.password}>
                 <FormLabel htmlFor="password">密码</FormLabel>
                 <Input
                   id="password"

@@ -22,15 +22,9 @@
   },
   "plugins": ["@typescript-eslint", "react"],
   "rules": {
-    "no-unused-vars": [
-      "warn",
-      {
-        "argsIgnorePattern": "^_",
-        "varsIgnorePattern": "^_"
-      }
-    ],
     "no-var": "error",
     "react/prop-types": "warn",
+    "react/react-in-jsx-scope": "off",
     "@typescript-eslint/no-unused-vars": [
       "warn",
       {

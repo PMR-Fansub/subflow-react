@@ -32,7 +32,7 @@ import { useAuth } from "../utils/auth";
 import { useState } from "react";
 
 const Profile = () => {
-  const auth = useAuth();
+  const auth = useAuth()!;
 
   return (
     <Flex
@@ -110,7 +110,7 @@ const ProfileItem = ({ label, value }: ProfileItemProps) => {
 
 const EditNicknameButton = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const auth = useAuth();
+  const auth = useAuth()!;
 
   const [input, setInput] = useState("");
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) =>
