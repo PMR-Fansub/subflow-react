@@ -32,13 +32,20 @@ interface LoginForm {
   password: string;
 }
 
+interface LocationState {
+  from: {
+    pathname: string;
+  };
+}
+
 const Login = () => {
   const toast = useToast();
   const navigate = useNavigate();
   const location = useLocation();
   const auth = useAuth()!;
 
-  const from = location.state?.from.pathname || "/";
+  const state = location.state as LocationState;
+  const from = state.from?.pathname || "/";
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const {
