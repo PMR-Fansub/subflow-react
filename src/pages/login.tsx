@@ -45,7 +45,7 @@ const Login = () => {
   const auth = useAuth()!;
 
   const state = location.state as LocationState;
-  const from = state.from?.pathname || "/";
+  const from = state?.from.pathname || "/";
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const {
