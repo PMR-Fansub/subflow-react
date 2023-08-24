@@ -68,19 +68,16 @@ const AuthProvider: FC<AuthProviderProps> = ({ children }) => {
     });
   };
 
-  const login = (username: string, password: string) => {
-    return axios
-      .post("/auth/login", {
-        username,
-        password
-      })
-      .then(response => {
-        const resBody = response.data;
-        const userInfo = resBody.data.userInfo;
-        localStorage.setItem("userInfo", JSON.stringify(userInfo));
-        setUserInfo(userInfo);
-        return resBody;
-      });
+  const login = async (username: string, password: string) => {
+    const response = await axios.post("/auth/login", {
+      username,
+      password
+    });
+    const resBody = response.data;
+    const userInfo = resBody.data.userInfo;
+    localStorage.setItem("userInfo", JSON.stringify(userInfo));
+    setUserInfo(userInfo);
+    return resBody;
   };
 
   const logout = () => {
@@ -188,3 +185,4 @@ const RequireNotAuth = () => {
 };
 
 export { AuthProvider, RequireAuth, RequireNotAuth, useAuth };
+export type { UserInfo };
