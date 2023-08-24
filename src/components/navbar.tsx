@@ -293,7 +293,7 @@ const MobileNav = () => {
 };
 
 interface MobileNavItemProps {
-  children: Navigable[];
+  children?: Navigable[];
   href: string;
   label: string;
 }
@@ -357,18 +357,16 @@ interface Navigable {
 }
 
 interface NavigationItem extends Navigable {
-  children: Array<Navigable>;
+  children?: Array<Navigable>;
 }
 
 const NAV_ITEMS: NavigationItem[] = [
   {
     label: "看板",
-    href: "/kanban",
-    children: []
+    href: "/kanban"
   },
   {
     label: "工具",
-    href: "/tools",
-    children: []
+    href: "/tools"
   }
 ];
