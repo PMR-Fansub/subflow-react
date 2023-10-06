@@ -1,3 +1,3 @@
-const options = { extends: ["@commitlint/config-conventional"] };
-
-module.exports = options;
+export default {
+  extends: ["@commitlint/config-conventional"]
+};

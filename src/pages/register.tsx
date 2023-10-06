@@ -33,7 +33,7 @@ import { AxiosError } from "axios";
 const Register = () => {
   const toast = useToast();
   const navigate = useNavigate();
-  const auth = useAuth();
+  const auth = useAuth()!;
   const [showPassword, setShowPassword] = useState(false);
   const [isSubmitting, _] = useState(false);
   const {
@@ -59,7 +59,7 @@ const Register = () => {
         navigate("/login");
       })
       .catch((error: AxiosError) => {
-        let errorMessage = "";
+        let errorMessage: string;
         if (error.response) {
           errorMessage = `${error.response.data.message} (${error.response.data.code})`;
         } else {

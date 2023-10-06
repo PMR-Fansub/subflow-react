@@ -18,7 +18,7 @@ import { useAuth } from "../utils/auth";
 
 const Landing = () => {
   const navigate = useNavigate();
-  const auth = useAuth();
+  const auth = useAuth()!;
 
   return (
     <Container maxW={"5xl"}>

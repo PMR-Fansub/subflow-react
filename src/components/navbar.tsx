@@ -41,10 +41,10 @@ import SubFlowLogoFull from "../assets/subflow-full.svg";
 import SubFlowLogoFullWhite from "../assets/subflow-full-white.svg";
 import ThemeToggleButton from "./theme-toggle-button";
 
-const WithSubnavigation = () => {
+const WithSubNavigation = () => {
   const { isOpen, onToggle } = useDisclosure();
   const navigate = useNavigate();
-  const auth = useAuth();
+  const auth = useAuth()!;
 
   return (
     <Box>
@@ -76,6 +76,7 @@ const WithSubnavigation = () => {
         <Flex
           flex={{ base: 1 }}
           justify={{ base: "center", md: "start" }}
+          px={5}
           align="center"
         >
           <Image
@@ -181,7 +182,7 @@ const WithSubnavigation = () => {
   );
 };
 
-export default WithSubnavigation;
+export default WithSubNavigation;
 
 const DesktopNav = () => {
   const linkColor = useColorModeValue("gray.600", "gray.200");
@@ -221,7 +222,7 @@ const DesktopNav = () => {
               >
                 <Stack>
                   {navItem.children.map(child => (
-                    <DesktopSubNav key={child.label} {...child} />
+                    <DesktopSubNav subLabel={""} key={child.label} {...child} />
                   ))}
                 </Stack>
               </PopoverContent>
@@ -292,7 +293,7 @@ const MobileNav = () => {
 };
 
 interface MobileNavItemProps {
-  children: React.ReactNode;
+  children?: Navigable[];
   href: string;
   label: string;
 }
@@ -350,7 +351,16 @@ const MobileNavItem = ({ children, href, label }: MobileNavItemProps) => {
   );
 };
 
-const NAV_ITEMS = [
+interface Navigable {
+  label: string;
+  href: string;
+}
+
+interface NavigationItem extends Navigable {
+  children?: Array<Navigable>;
+}
+
+const NAV_ITEMS: NavigationItem[] = [
   {
     label: "看板",
     href: "/kanban"
