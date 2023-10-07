@@ -1,23 +1,31 @@
+// Copyright (C) 2022-2023 PMR Fansub
+//
+// SPDX-License-Identifier: GPL-3.0-or-later
+
 import {
-  Flex,
+  Alert,
+  AlertIcon,
   Box,
-  FormControl,
-  FormLabel,
-  Input,
-  Stack,
-  Link,
   Button,
+  Flex,
+  FormControl,
+  FormErrorMessage,
+  FormLabel,
+  Image,
+  Input,
+  Link,
+  Stack,
   Text,
   useColorModeValue,
-  useToast,
-  FormErrorMessage,
-  Image
+  useToast
 } from "@chakra-ui/react";
 import { Link as RouterLink, useLocation, useNavigate } from "react-router-dom";
 import { useAuth } from "../utils/auth";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
 import SubFlowLogoFull from "../assets/subflow-full.svg";
+import SubFlowLogoFullWhite from "../assets/subflow-full-white.svg";
+import { AxiosError } from "axios";
 
 const Login = () => {
   const toast = useToast();
@@ -25,8 +33,8 @@ const Login = () => {
   const location = useLocation();
   const auth = useAuth();
 
-  let from = location.state?.from.pathname || "/";
-  let [isSubmitting, setIsSubmitting] = useState(false);
+  const from = location.state?.from.pathname || "/";
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const {
     handleSubmit,
@@ -40,7 +48,7 @@ const Login = () => {
     const password = values.password;
     auth
       .login(username, password)
-      .then(response => {
+      .then(() => {
         toast({
           title: "登录成功",
           status: "success",
@@ -49,7 +57,7 @@ const Login = () => {
         });
         navigate(from);
       })
-      .catch(error => {
+      .catch((error: AxiosError) => {
         let errorMessage = "";
         if (error.response) {
           errorMessage = `${error.response.data.message} (${error.response.data.code})`;
@@ -73,10 +81,17 @@ const Login = () => {
     <Flex align={"center"} justify={"center"}>
       <Stack spacing={8} mx={"auto"} maxW={"lg"} py={12} px={6}>
         <Stack align={"center"}>
-          <Image src={SubFlowLogoFull} height={"60px"}></Image>
+          <Image
+            src={useColorModeValue(SubFlowLogoFull, SubFlowLogoFullWhite)}
+            height={"60px"}
+          ></Image>
           <Text fontSize={"lg"} color={"gray.600"}>
             Make fansub workflow more{" "}
-            <Text as={"span"} color={"brand.light"} fontWeight={"bold"}>
+            <Text
+              as={"span"}
+              color={useColorModeValue("brand.light", "white")}
+              fontWeight={"bold"}
+            >
               efficient
             </Text>
             .
@@ -91,6 +106,10 @@ const Login = () => {
         >
           <form onSubmit={handleSubmit(handleLogin)}>
             <Stack spacing={4}>
+              <Alert status="warning">
+                <AlertIcon />
+                功能开发中，敬请期待
+              </Alert>
               <FormControl id="username" isInvalid={errors.username}>
                 <FormLabel htmlFor="username">用户名</FormLabel>
                 <Input
@@ -128,6 +147,7 @@ const Login = () => {
                 <Button
                   bg={"brand.light"}
                   color={"white"}
+                  isDisabled
                   _hover={{
                     bg: "brand.dark"
                   }}

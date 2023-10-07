@@ -1,5 +1,9 @@
+// Copyright (C) 2022-2023 PMR Fansub
+//
+// SPDX-License-Identifier: GPL-3.0-or-later
+
 import { IconButton, useColorMode, useColorModeValue } from "@chakra-ui/react";
-import { SunIcon, MoonIcon } from "@chakra-ui/icons";
+import { MoonIcon, SunIcon } from "@chakra-ui/icons";
 
 const ThemeToggleButton = () => {
   const { toggleColorMode } = useColorMode();
@@ -8,6 +12,7 @@ const ThemeToggleButton = () => {
       aria-label="Toggle theme"
       colorScheme={useColorModeValue("messenger", "orange")}
       icon={useColorModeValue(<MoonIcon />, <SunIcon />)}
+      variant="ghost"
       onClick={toggleColorMode}
     ></IconButton>
   );

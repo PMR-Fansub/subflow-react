@@ -1,39 +1,44 @@
+// Copyright (C) 2022-2023 PMR Fansub
+//
+// SPDX-License-Identifier: GPL-3.0-or-later
+
 import {
+  Avatar,
   Box,
-  Flex,
-  Text,
-  IconButton,
   Button,
-  Stack,
-  HStack,
-  VStack,
   Collapse,
+  Flex,
+  HStack,
   Icon,
+  IconButton,
+  Image,
   Link,
   Menu,
   MenuButton,
-  MenuList,
-  Avatar,
   MenuDivider,
   MenuItem,
+  MenuList,
   Popover,
-  PopoverTrigger,
   PopoverContent,
+  PopoverTrigger,
+  Stack,
+  Text,
   useColorModeValue,
   // useBreakpointValue,
   useDisclosure,
-  Image
+  VStack
 } from "@chakra-ui/react";
 import {
-  HamburgerIcon,
-  CloseIcon,
   ChevronDownIcon,
-  ChevronRightIcon
+  ChevronRightIcon,
+  CloseIcon,
+  HamburgerIcon
 } from "@chakra-ui/icons";
 import { FiChevronDown } from "react-icons/fi";
-import { useNavigate } from "react-router-dom";
+import { Link as RouterLink, useNavigate } from "react-router-dom";
 import { useAuth } from "../utils/auth";
 import SubFlowLogoFull from "../assets/subflow-full.svg";
+import SubFlowLogoFullWhite from "../assets/subflow-full-white.svg";
 import ThemeToggleButton from "./theme-toggle-button";
 
 const WithSubnavigation = () => {
@@ -73,21 +78,10 @@ const WithSubnavigation = () => {
           justify={{ base: "center", md: "start" }}
           align="center"
         >
-          {/* <Text
-            textAlign={useBreakpointValue({ base: "center", md: "left" })}
-            fontFamily={"heading"}
-            fontWeight={700}
-            fontSize={"xl"}
-            color={useColorModeValue("gray.800", "white")}
-            cursor="pointer"
-            onClick={() => navigate("/")}
-          >
-            SubFlow
-          </Text> */}
           <Image
             cursor="pointer"
-            src={SubFlowLogoFull}
-            height={"30px"}
+            src={useColorModeValue(SubFlowLogoFull, SubFlowLogoFullWhite)}
+            height={"20px"}
             onClick={() => navigate("/")}
           />
 
@@ -103,8 +97,9 @@ const WithSubnavigation = () => {
           direction={"row"}
           spacing={6}
         >
-          {auth.userInfo ? (
-            <>
+          <>
+            <ThemeToggleButton />
+            {auth.userInfo ? (
               <Menu>
                 <MenuButton
                   transition="all 0.3s"
@@ -144,39 +139,38 @@ const WithSubnavigation = () => {
                   </MenuItem>
                 </MenuList>
               </Menu>
-            </>
-          ) : (
-            <>
-              <ThemeToggleButton />
-              <Button
-                as={"a"}
-                fontSize={"sm"}
-                fontWeight={400}
-                variant={"link"}
-                href={"#"}
-                onClick={() => {
-                  navigate("/login");
-                }}
-              >
-                登录
-              </Button>
-              <Button
-                display={{ base: "none", md: "inline-flex" }}
-                fontSize={"sm"}
-                fontWeight={600}
-                color={"white"}
-                bg={"brand.light"}
-                _hover={{
-                  bg: "brand.right"
-                }}
-                onClick={() => {
-                  navigate("/register");
-                }}
-              >
-                注册
-              </Button>
-            </>
-          )}
+            ) : (
+              <>
+                <Button
+                  as={"a"}
+                  fontSize={"sm"}
+                  fontWeight={400}
+                  variant="ghost"
+                  href={"#"}
+                  onClick={() => {
+                    navigate("/login");
+                  }}
+                >
+                  登录
+                </Button>
+                <Button
+                  display={{ base: "none", md: "inline-flex" }}
+                  fontSize={"sm"}
+                  fontWeight={600}
+                  color={"white"}
+                  bg={useColorModeValue("brand.light", "brand.dark")}
+                  _hover={{
+                    bg: useColorModeValue("brand.dark", "brand.light")
+                  }}
+                  onClick={() => {
+                    navigate("/register");
+                  }}
+                >
+                  注册
+                </Button>
+              </>
+            )}
+          </>
         </Stack>
       </Flex>
 
@@ -201,8 +195,9 @@ const DesktopNav = () => {
           <Popover trigger={"hover"} placement={"bottom-start"}>
             <PopoverTrigger>
               <Link
+                as={RouterLink}
                 p={2}
-                href={navItem.href ?? "#"}
+                to={navItem.href ?? "#"}
                 fontSize={"md"}
                 fontWeight={500}
                 color={linkColor}
@@ -238,10 +233,17 @@ const DesktopNav = () => {
   );
 };
 
-const DesktopSubNav = ({ label, href, subLabel }) => {
+interface DesktopSubNavProps {
+  href: string;
+  label: string;
+  subLabel: string;
+}
+
+const DesktopSubNav = ({ href, label, subLabel }: DesktopSubNavProps) => {
   return (
     <Link
-      href={href}
+      as={RouterLink}
+      to={href}
       role={"group"}
       display={"block"}
       p={2}
@@ -289,15 +291,21 @@ const MobileNav = () => {
   );
 };
 
-const MobileNavItem = ({ label, children, href }) => {
+interface MobileNavItemProps {
+  children: React.ReactNode;
+  href: string;
+  label: string;
+}
+
+const MobileNavItem = ({ children, href, label }: MobileNavItemProps) => {
   const { isOpen, onToggle } = useDisclosure();
 
   return (
     <Stack spacing={4} onClick={children && onToggle}>
       <Flex
         py={2}
-        as={Link}
-        href={href ?? "#"}
+        as={RouterLink}
+        to={href ?? "#"}
         justify={"space-between"}
         align={"center"}
         _hover={{
@@ -332,7 +340,7 @@ const MobileNavItem = ({ label, children, href }) => {
         >
           {children &&
             children.map(child => (
-              <Link key={child.label} py={2} href={child.href}>
+              <Link as={RouterLink} key={child.label} py={2} to={child.href}>
                 {child.label}
               </Link>
             ))}
@@ -346,5 +354,9 @@ const NAV_ITEMS = [
   {
     label: "看板",
     href: "/kanban"
+  },
+  {
+    label: "工具",
+    href: "/tools"
   }
 ];

@@ -1,3 +1,7 @@
+// Copyright (C) 2022-2023 PMR Fansub
+//
+// SPDX-License-Identifier: GPL-3.0-or-later
+
 import { ArrowForwardIcon } from "@chakra-ui/icons";
 import {
   Flex,
@@ -14,7 +18,7 @@ import { useAuth } from "../utils/auth";
 
 const Landing = () => {
   const navigate = useNavigate();
-  let auth = useAuth();
+  const auth = useAuth();
 
   return (
     <Container maxW={"5xl"}>

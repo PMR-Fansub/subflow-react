@@ -1,3 +1,7 @@
+// Copyright (C) 2022-2023 PMR Fansub
+//
+// SPDX-License-Identifier: GPL-3.0-or-later
+
 import {
   Box,
   chakra,
@@ -11,8 +15,15 @@ import {
 } from "@chakra-ui/react";
 import { RiBilibiliFill, RiGithubFill } from "react-icons/ri";
 import SubFlowLogoFull from "../assets/subflow-full.svg";
+import SubFlowLogoFullWhite from "../assets/subflow-full-white.svg";
 
-const SocialButton = ({ children, label, href }) => {
+interface SocialButtonProps {
+  children: React.ReactNode;
+  label: string;
+  href: string;
+}
+
+const SocialButton = ({ children, label, href }: SocialButtonProps) => {
   return (
     <chakra.button
       bg={useColorModeValue("blackAlpha.100", "whiteAlpha.100")}
@@ -52,8 +63,11 @@ const Footer = () => {
         justify={{ base: "center", md: "space-between" }}
         align={{ base: "center", md: "center" }}
       >
-        <Image src={SubFlowLogoFull} height="32px" />
-        <Text>© 2022 SubFlow All rights reserved. Powered by PMR Fansub</Text>
+        <Image
+          src={useColorModeValue(SubFlowLogoFull, SubFlowLogoFullWhite)}
+          height="20px"
+        />
+        <Text>© 2022-2023 PMR Fansub. All rights reserved.</Text>
         <Stack direction={"row"} spacing={6}>
           <SocialButton
             label={"Bilibili"}
